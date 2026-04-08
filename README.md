@@ -1,3 +1,4 @@
-# Full-Stack .NET + Angular Roadmap
+This repository contains personal learning notes and study roadmap 
+for .NET and Angular. 
 
-This roadmap is created by me for learning and interview preparation.
+It does not include any proprietary, confidential, or company-specific information.
