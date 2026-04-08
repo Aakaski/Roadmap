@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full-Stack .NET + Angular Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<h2 class="sr-only">Interactive full-stack .NET + Angular 5-month study roadmap with phases, topics, interview focus, and daily schedule</h2>
+<style>
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --bg-tertiary: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --border-primary: #E2E8F0;
+  --border-secondary: #CBD5E1;
+  --accent: #6366F1;
+  --accent-bg: #EEF2FF;
+  --accent-light: #E0E7FF;
+  --success: #10B981;
+  --success-bg: #ECFDF5;
+  --warning: #F59E0B;
+  --warning-bg: #FFFBEB;
+  --danger: #EF4444;
+  --danger-bg: #FEF2F2;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 50%, #F8FAFC 100%); min-height: 100vh; color: var(--text-primary); line-height: 1.6; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+.roadmap-container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+/* Header */
+.roadmap-header { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #6366F1 100%); border-radius: var(--radius-lg); padding: 2rem 2.5rem; margin-bottom: 1.5rem; color: white; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); }
+.roadmap-header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%; }
+.roadmap-header::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%; }
+.header-content { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.header-title { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
+.header-sub { font-size: 14px; opacity: 0.85; margin-top: 4px; font-weight: 400; }
+.header-badge { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 500; backdrop-filter: blur(10px); }
+
+/* Legend */
+.legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 1.5rem; padding: 12px 16px; background: var(--bg-primary); border-radius: var(--radius-md); border: 1px solid var(--border-primary); box-shadow: var(--shadow-sm); }
+.legend span { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
+
+/* Phase Nav */
+.phase-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; padding: 12px 16px; background: var(--bg-primary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); box-shadow: var(--shadow-sm); }
+.phase-nav button { font-size: 12px; padding: 6px 14px; border-radius: 50px; border: 1.5px solid var(--border-primary); background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; transition: all 0.2s ease; font-family: inherit; font-weight: 500; }
+.phase-nav button:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); transform: translateY(-1px); }
+.phase-nav button.active { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 2px 8px rgba(99,102,241,0.3); transform: translateY(-1px); }
+
+/* Phase Block */
+.phase-block { background: var(--bg-primary); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--border-primary); box-shadow: var(--shadow-md); margin-bottom: 1.5rem; }
+.phase-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.25rem; padding-bottom: 14px; border-bottom: 2px solid var(--bg-tertiary); }
+.phase-num { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; box-shadow: var(--shadow-sm); }
+.phase-title { font-size: 18px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+.phase-meta { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+
+/* Topic Items */
+.topic-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1.25rem; }
+.topic-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-primary); background: var(--bg-primary); transition: all 0.2s ease; }
+.topic-item:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(99,102,241,0.08); transform: translateX(4px); }
+.topic-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+.topic-name { font-size: 13px; color: var(--text-primary); line-height: 1.6; flex: 1; }
+.topic-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 4px; }
+
+/* Tags */
+.tag { font-size: 10px; padding: 2px 8px; border-radius: 50px; font-weight: 600; letter-spacing: 0.02em; }
+.tag-hot { background: #FEE2E2; color: #DC2626; border: 1px solid #FECACA; }
+.tag-med { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
+.tag-new { background: #D1FAE5; color: #059669; border: 1px solid #A7F3D0; }
+.tag-day { background: var(--bg-tertiary); color: var(--text-secondary); font-size: 10px; border: 1px solid var(--border-primary); }
+
+/* Interview Box */
+.interview-box { background: linear-gradient(135deg, #F8FAFC, #EEF2FF); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 1rem; border: 1px solid var(--border-primary); }
+.interview-box h4 { font-size: 11px; font-weight: 700; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+.iq { font-size: 13px; color: var(--text-primary); padding: 6px 0; border-bottom: 1px solid var(--border-primary); line-height: 1.6; }
+.iq:last-child { border-bottom: none; }
+.iq-fire { font-size: 11px; margin-right: 6px; }
+
+/* Drill Button */
+.drill-btn { font-size: 12px; padding: 8px 16px; margin-top: 12px; background: var(--accent); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; font-family: inherit; transition: all 0.2s ease; box-shadow: 0 2px 6px rgba(99,102,241,0.3); }
+.drill-btn:hover { background: #4F46E5; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99,102,241,0.4); }
+
+/* Overview Grid */
+.overview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.ov-card { border: 1.5px solid var(--border-primary); border-radius: var(--radius-md); padding: 14px 16px; cursor: pointer; transition: all 0.25s ease; background: var(--bg-primary); }
+.ov-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(99,102,241,0.12); transform: translateY(-3px); }
+.ov-card .ov-num { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+.ov-card .ov-title { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
+.ov-card .ov-days { font-size: 11px; color: var(--text-secondary); }
+.ov-card .ov-imp { font-size: 10px; margin-top: 6px; font-weight: 600; }
+
+/* Daily Cards */
+.daily-strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
+.daily-card { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary)); border-radius: var(--radius-md); padding: 14px 16px; border: 1px solid var(--border-primary); transition: all 0.2s ease; }
+.daily-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.daily-card .time { font-size: 11px; color: var(--accent); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.daily-card .activity { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.daily-card .sub { font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+
+/* Info Boxes */
+.info-box { background: var(--bg-secondary); border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 1.25rem; border: 1px solid var(--border-primary); }
+.info-box-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.info-box-content { font-size: 12px; color: var(--text-secondary); line-height: 2; }
+
+/* Action Button */
+.action-btn { font-size: 13px; padding: 10px 20px; background: linear-gradient(135deg, #4F46E5, #7C3AED); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; font-family: inherit; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(99,102,241,0.3); }
+.action-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99,102,241,0.4); }
+
+/* Details/Accordion */
+details { transition: all 0.2s ease; }
+details[open] { box-shadow: var(--shadow-sm); }
+details summary { list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: '▸'; margin-right: 8px; font-size: 11px; color: var(--text-muted); transition: transform 0.2s; display: inline-block; }
+details[open] summary::before { transform: rotate(90deg); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-secondary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .roadmap-container { padding: 1rem; }
+  .roadmap-header { padding: 1.5rem; }
+  .header-title { font-size: 20px; }
+  .phase-nav { gap: 4px; padding: 8px 10px; }
+  .phase-nav button { font-size: 11px; padding: 5px 10px; }
+  .overview-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .daily-strip { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="roadmap-container">
+
+<div class="roadmap-header">
+  <div class="header-content">
+    <div>
+      <div class="header-title">Full-stack .NET + Angular Roadmap</div>
+      <div class="header-sub">4–5 months · 1 year experience · company switch prep</div>
+    </div>
+    <div class="header-badge">~145 days total</div>
+  </div>
+</div>
+
+<div class="legend">
+  <span><span class="tag tag-hot">must know</span> very frequently asked</span>
+  <span><span class="tag tag-med">important</span> commonly asked</span>
+  <span><span class="tag tag-new">good to know</span> differentiator / bonus</span>
+</div>
+
+<div class="phase-nav" id="phaseNav"></div>
+<div id="phaseContent"></div>
+
+</div>
+
+<script>
+const phases = [
+  {
+    id: 'overview',
+    label: 'Overview',
+    color: '#534AB7',
+    bgColor: '#EEEDFE',
+    days: '',
+    title: 'Full roadmap overview',
+    subtitle: 'Click any phase to dive into daily topics',
+    isOverview: true
+  },
+  {
+    id: 'daily',
+    label: 'Daily schedule',
+    color: '#0F6E56',
+    bgColor: '#E1F5EE',
+    days: 'Every day',
+    title: 'Daily study schedule',
+    subtitle: 'How to structure each study session',
+    isDaily: true
+  },
+  {
+    id: 'p1',
+    label: 'Phase 1 · C# & OOP',
+    color: '#6B21A8',
+    bgColor: '#F3E8FF',
+    days: 'Days 1–10',
+    title: 'C# language fundamentals & OOP/SOLID',
+    subtitle: 'Days 1–10 (10 days) — foundation for everything',
+    topics: [
+      { name: 'Value types vs Reference types — struct vs class, stack vs heap, boxing/unboxing', imp: 'hot', days: 'Day 1' },
+      { name: 'Strings — immutability, StringBuilder, string interpolation, string.Equals vs ==', imp: 'hot', days: 'Day 1' },
+      { name: 'Access modifiers — public, private, protected, internal, protected internal', imp: 'hot', days: 'Day 2' },
+      { name: 'static, sealed, partial, readonly, const — what each means and when to use', imp: 'med', days: 'Day 2' },
+      { name: 'OOP pillars — Encapsulation, Inheritance, Polymorphism, Abstraction with examples', imp: 'hot', days: 'Day 3' },
+      { name: 'Interfaces vs Abstract classes — when to use each, multiple inheritance via interfaces', imp: 'hot', days: 'Day 3' },
+      { name: 'Collections — List, Dictionary, HashSet, Queue, Stack, when to use each', imp: 'hot', days: 'Day 4' },
+      { name: 'Generics — generic classes, methods, constraints (where T : class), why they matter', imp: 'hot', days: 'Day 4' },
+      { name: 'LINQ fundamentals — method syntax vs query syntax, deferred execution, IEnumerable vs IQueryable', imp: 'hot', days: 'Day 5' },
+      { name: 'Extension methods — static methods that extend existing types, this keyword, how LINQ uses them', imp: 'hot', days: 'Day 5' },
+      { name: 'Delegates & Events — Action, Func, Predicate, event keyword, publisher-subscriber', imp: 'hot', days: 'Day 6' },
+      { name: 'SOLID — Single Responsibility, Open/Closed, Liskov, Interface Segregation, Dependency Inversion', imp: 'hot', days: 'Days 6–7' },
+      { name: 'Exception handling — try/catch/finally, custom exceptions, when to throw vs catch', imp: 'hot', days: 'Day 7' },
+      { name: 'async/await introduction — Task, Task<T>, why async matters, async all the way (deep dive in Phase 2)', imp: 'med', days: 'Day 8' },
+      { name: 'Nullable types — Nullable<T>, null-coalescing (??, ??=), null-conditional (?.), nullable reference types', imp: 'med', days: 'Day 8' },
+      { name: 'Record types — record vs class, value equality, with expressions, immutability', imp: 'med', days: 'Day 9' },
+      { name: 'Pattern matching — switch expressions, is pattern, property patterns, relational patterns', imp: 'med', days: 'Day 9' },
+      { name: 'Garbage collection basics — generations (0/1/2), IDisposable, using statement, finalizers', imp: 'med', days: 'Day 10' },
+    ],
+    iqs: [
+      { q: 'What is the difference between value types and reference types?', fire: true },
+      { q: 'Explain the 4 pillars of OOP with examples', fire: true },
+      { q: 'Interface vs Abstract class — when would you use each?', fire: true },
+      { q: 'Explain all 5 SOLID principles with real examples', fire: true },
+      { q: 'What is the difference between IEnumerable and IQueryable?', fire: true },
+      { q: 'What are delegates? Difference between Action, Func, and Predicate?', fire: true },
+      { q: 'What are extension methods? Give a real example of when you would write one.', fire: true },
+      { q: 'What is the difference between const and readonly?', fire: true },
+      { q: 'What is garbage collection in .NET? What are generations?', fire: false },
+      { q: 'What is a record type? How is it different from a class?', fire: false },
+    ],
+    drill: 'Explain SOLID principles in C# with real code examples and common interview questions'
+  },
+  {
+    id: 'p2',
+    label: 'Phase 2 · .NET Core',
+    color: '#185FA5',
+    bgColor: '#E6F1FB',
+    days: 'Days 11–22',
+    title: '.NET Core fundamentals',
+    subtitle: 'Days 11–22 (12 days)',
+    topics: [
+      { name: 'ASP.NET Core project structure — Program.cs, Startup, launchSettings', imp: 'hot', days: 'Day 11' },
+      { name: 'Controllers, action methods, routing attributes ([Route], [HttpGet], etc.)', imp: 'hot', days: 'Day 12' },
+      { name: 'HTTP methods — GET / POST / PUT / PATCH / DELETE with correct semantics', imp: 'hot', days: 'Day 12' },
+      { name: 'Model binding — [FromBody], [FromQuery], [FromRoute], [FromHeader]', imp: 'hot', days: 'Day 13' },
+      { name: 'Data annotations validation — [Required], [Range], [StringLength], ModelState', imp: 'hot', days: 'Day 13' },
+      { name: 'appsettings.json + IConfiguration + IOptions<T> pattern', imp: 'hot', days: 'Day 14' },
+      { name: 'Middleware pipeline — order matters, custom middleware, Use/Run/Map', imp: 'hot', days: 'Day 15' },
+      { name: 'Dependency Injection — AddScoped vs AddSingleton vs AddTransient (deep)', imp: 'hot', days: 'Day 16' },
+      { name: 'async / await + Task — every API method should be async', imp: 'hot', days: 'Day 17' },
+      { name: 'CancellationToken — pass into DB calls, respect request cancellation', imp: 'med', days: 'Day 17' },
+      { name: 'Action filters — IActionFilter, OnActionExecuting / OnActionExecuted', imp: 'med', days: 'Day 18' },
+      { name: 'HttpClient & IHttpClientFactory — calling external APIs, typed clients, DI registration, avoid socket exhaustion', imp: 'hot', days: 'Day 18' },
+      { name: 'Minimal APIs (ASP.NET 6+) — MapGet, MapPost, no controller needed', imp: 'med', days: 'Day 19' },
+      { name: 'IActionResult vs ActionResult<T> — typed responses', imp: 'med', days: 'Day 19' },
+      { name: 'CORS configuration — AddCors, UseCors, AllowAnyOrigin / WithOrigins', imp: 'hot', days: 'Day 20' },
+      { name: 'Swagger / OpenAPI — AddSwaggerGen, UseSwagger, XML comments, documenting your API for frontend devs', imp: 'hot', days: 'Day 20' },
+      { name: 'Health checks — AddHealthChecks, MapHealthChecks, custom health check for DB connectivity', imp: 'med', days: 'Day 21' },
+      { name: 'Environment-specific config — Development / Staging / Production', imp: 'med', days: 'Day 21' },
+      { name: 'Build & run first working REST API with all CRUD endpoints', imp: 'hot', days: 'Day 22' },
+    ],
+    iqs: [
+      { q: 'What is the middleware pipeline? What happens if you call next()?', fire: true },
+      { q: 'AddScoped vs AddSingleton vs AddTransient — when to use each?', fire: true },
+      { q: 'What is async/await? How does it differ from threads?', fire: true },
+      { q: 'What is model binding? What are the binding sources?', fire: true },
+      { q: 'What is IHttpClientFactory? Why should you not use new HttpClient() directly?', fire: true },
+      { q: 'What is Swagger/OpenAPI? How do you document your API?', fire: true },
+      { q: 'What is IOptions<T>? How do you read config in a service?', fire: false },
+      { q: 'What is a minimal API? How is it different from controller-based?', fire: false },
+    ],
+    drill: 'Explain middleware pipeline in ASP.NET Core with a code example and interview questions'
+  },
+  {
+    id: 'p3',
+    label: 'Phase 3 · Auth & Security',
+    color: '#993C1D',
+    bgColor: '#FAECE7',
+    days: 'Days 23–32',
+    title: 'Authentication, JWT & security',
+    subtitle: 'Days 23–32 (10 days)',
+    topics: [
+      { name: 'Authentication vs Authorization — fundamental difference', imp: 'hot', days: 'Day 23' },
+      { name: 'JWT structure — header.payload.signature, how to decode', imp: 'hot', days: 'Day 23' },
+      { name: 'Full JWT flow — login → generate token → validate on every request', imp: 'hot', days: 'Day 24' },
+      { name: 'Claims & Identity — ClaimsPrincipal, ClaimsIdentity, add custom claims', imp: 'hot', days: 'Day 24' },
+      { name: 'Role-based authorization — [Authorize(Roles="Admin")], policy-based', imp: 'hot', days: 'Day 25' },
+      { name: 'Password hashing — BCrypt, never store plain text, salt rounds', imp: 'hot', days: 'Day 25' },
+      { name: 'Refresh tokens — why needed, how to store securely, rotation strategy', imp: 'hot', days: 'Day 26' },
+      { name: 'JWT vs Session — stateless vs stateful, scalability tradeoffs', imp: 'hot', days: 'Day 26' },
+      { name: 'HTTPS enforcement — UseHttpsRedirection, HSTS', imp: 'med', days: 'Day 27' },
+      { name: 'OWASP basics — SQL injection, XSS, CSRF, how .NET handles each', imp: 'med', days: 'Day 28' },
+      { name: 'OAuth 2.0 & OpenID Connect — authorization code flow, client credentials, how Google/GitHub login works (awareness)', imp: 'med', days: 'Day 28' },
+      { name: 'Store tokens in frontend — localStorage vs HttpOnly cookie debate', imp: 'med', days: 'Day 29' },
+      { name: 'Build: full Login + Register + protected endpoints', imp: 'hot', days: 'Days 30–32' },
+    ],
+    iqs: [
+      { q: 'Explain the JWT flow from login to an authorized request end-to-end', fire: true },
+      { q: 'Authentication vs Authorization — what is the difference?', fire: true },
+      { q: 'Why use JWT over sessions? What are the tradeoffs?', fire: true },
+      { q: 'What are refresh tokens? Why are they needed?', fire: true },
+      { q: 'Where should you store JWT in the frontend — localStorage or cookie?', fire: false },
+      { q: 'What is OAuth 2.0? How is it different from JWT?', fire: false },
+      { q: 'What is CSRF? How does .NET protect against it?', fire: false },
+    ],
+    drill: 'Explain JWT authentication flow in ASP.NET Core with refresh tokens and code example'
+  },
+  {
+    id: 'p4',
+    label: 'Phase 4 · EF Core & DB',
+    color: '#854F0B',
+    bgColor: '#FAEEDA',
+    days: 'Days 33–50',
+    title: 'Database, EF Core & Dapper',
+    subtitle: 'Days 33–50 (18 days) — heaviest phase',
+    topics: [
+      { name: 'SQL fundamentals — SELECT, JOIN (inner/left/right), GROUP BY, ORDER BY', imp: 'hot', days: 'Day 33' },
+      { name: 'Database normalization — 1NF, 2NF, 3NF, BCNF with examples, when to denormalize for performance', imp: 'hot', days: 'Day 33' },
+      { name: 'SQL advanced — subqueries, CTEs (WITH clause), window functions basics', imp: 'med', days: 'Day 34' },
+      { name: 'Indexes — clustered vs non-clustered, when to add, query performance', imp: 'hot', days: 'Day 34' },
+      { name: 'EF Core setup — DbContext, DbSet, OnModelCreating, connection string', imp: 'hot', days: 'Day 35' },
+      { name: 'Migrations — Add-Migration, Update-Database, rollback, migration files', imp: 'hot', days: 'Day 35' },
+      { name: 'Relationships — One-to-One, One-to-Many, Many-to-Many with config', imp: 'hot', days: 'Day 36' },
+      { name: 'LINQ — Where, Select, FirstOrDefault, Any, Include, ThenInclude', imp: 'hot', days: 'Day 37' },
+      { name: 'Eager vs Lazy vs Explicit loading — when to use each', imp: 'hot', days: 'Day 37' },
+      { name: 'N+1 query problem — what it is, how to fix with Include()', imp: 'hot', days: 'Day 38' },
+      { name: 'Raw SQL in EF — FromSqlRaw, ExecuteSqlRaw for complex queries', imp: 'med', days: 'Day 38' },
+      { name: 'Stored procedures — calling from EF Core and from Dapper', imp: 'med', days: 'Day 39' },
+      { name: 'Dapper — micro-ORM, Query<T>, Execute, DynamicParameters, when to prefer', imp: 'hot', days: 'Day 40' },
+      { name: 'EF Core vs ADO.NET vs Dapper — performance vs convenience comparison', imp: 'hot', days: 'Day 40' },
+      { name: 'Connection pooling — what it is, why it matters, default behavior', imp: 'med', days: 'Day 41' },
+      { name: 'Transactions — BeginTransaction, SaveChanges atomicity, nested transactions', imp: 'med', days: 'Day 41' },
+      { name: 'Concurrency handling — optimistic vs pessimistic concurrency, concurrency tokens in EF Core, [Timestamp] attribute', imp: 'med', days: 'Day 41' },
+      { name: 'Repository pattern — generic repo, IRepository<T>, pros/cons', imp: 'hot', days: 'Day 42' },
+      { name: 'Unit of Work pattern — wrapping multiple repos in one transaction', imp: 'med', days: 'Day 43' },
+      { name: 'Revision & catch-up day — revise all DB concepts, fill gaps', imp: 'med', days: 'Day 44' },
+      { name: 'Build: full CRUD API with EF Core + relationships + migrations', imp: 'hot', days: 'Days 45–50' },
+    ],
+    mustSolveProblems: [
+      { category: 'Basic SELECT & Filtering', problems: ['SELECT all columns from a table', 'SELECT with WHERE clause (=, <>, >, <, BETWEEN, IN, LIKE)', 'SELECT DISTINCT — remove duplicates', 'ORDER BY — ASC, DESC, multiple columns', 'LIMIT / TOP — get first N rows', 'NULL handling — IS NULL, IS NOT NULL, COALESCE, ISNULL'], difficulty: 'Easy', companyAsk: 'Every company' },
+      { category: 'JOINs', problems: ['INNER JOIN — matching rows from both tables', 'LEFT JOIN — all from left + matching from right', 'RIGHT JOIN — all from right + matching from left', 'FULL OUTER JOIN — all rows from both tables', 'CROSS JOIN — cartesian product', 'Self JOIN — employee-manager relationship', 'JOIN 3+ tables — employee → department → location'], difficulty: 'Easy–Medium', companyAsk: 'Every company — most asked' },
+      { category: 'Aggregation & Grouping', problems: ['COUNT, SUM, AVG, MIN, MAX', 'GROUP BY — department-wise salary sum', 'HAVING — filter groups (vs WHERE)', 'GROUP BY with multiple columns', 'Count of employees per department having count > 5', 'Average salary per department — only departments with avg > 50K'], difficulty: 'Easy–Medium', companyAsk: 'Every company' },
+      { category: 'Subqueries', problems: ['Subquery in WHERE — find employees earning more than avg salary', 'Subquery in FROM — derived table as data source', 'Correlated subquery — row-by-row comparison', 'EXISTS vs IN — which is faster and when', 'Find department with highest total salary (subquery approach)', 'NOT IN vs NOT EXISTS — NULL handling difference'], difficulty: 'Medium', companyAsk: 'Wave 1–2' },
+      { category: 'Window Functions', problems: ['ROW_NUMBER() — assign unique row numbers', 'RANK() vs DENSE_RANK() — handle ties differently', 'NTILE() — divide rows into buckets', 'LEAD() / LAG() — access next/previous row', 'SUM() OVER (PARTITION BY) — running total per group', 'FIRST_VALUE / LAST_VALUE — get first or last in partition'], difficulty: 'Medium–Hard', companyAsk: 'Wave 2–3 (very common)' },
+      { category: 'CTEs & Recursive Queries', problems: ['Basic CTE — WITH clause for readability', 'Multiple CTEs in one query', 'Recursive CTE — org hierarchy (employee → manager → CEO)', 'CTE vs subquery — performance and readability tradeoff', 'CTE with ROW_NUMBER for pagination'], difficulty: 'Medium', companyAsk: 'Wave 2–3' },
+      { category: 'Classic Interview Queries', problems: ['Find 2nd highest salary (multiple approaches)', 'Find Nth highest salary using DENSE_RANK', 'Find duplicate records in a table', 'Delete duplicate rows keeping one', 'Find employees with no manager (self join)', 'Find department with max employees', 'Swap values of two columns without temp variable', 'Find consecutive login days for a user'], difficulty: 'Medium–Hard', companyAsk: 'Every company — top favorites' },
+      { category: 'DML & DDL', problems: ['INSERT — single row, multiple rows, INSERT INTO SELECT', 'UPDATE with JOIN — update based on another table', 'DELETE vs TRUNCATE vs DROP — differences', 'CREATE TABLE with constraints (PK, FK, UNIQUE, CHECK, DEFAULT)', 'ALTER TABLE — add/drop/modify columns', 'CREATE INDEX — when and why'], difficulty: 'Easy–Medium', companyAsk: 'Wave 1' },
+      { category: 'Views, Stored Procs, Triggers', problems: ['CREATE VIEW — virtual table, when to use', 'Stored procedure — input/output parameters, EXEC', 'Function vs Stored Procedure — key differences', 'Triggers — BEFORE/AFTER INSERT/UPDATE/DELETE, when to avoid', 'Temp tables vs Table variables — scope and performance', 'Dynamic SQL — EXEC vs sp_executesql, SQL injection risk'], difficulty: 'Medium', companyAsk: 'Wave 1–2 (service companies love this)' },
+      { category: 'Performance & Optimization', problems: ['Execution plan — how to read, identify table scan vs index seek', 'Index optimization — when to add, composite index, covering index', 'Query optimization — avoid SELECT *, use EXISTS over IN, avoid functions on indexed columns', 'Deadlocks — what causes them, how to prevent', 'Pagination — OFFSET FETCH vs ROW_NUMBER approach', 'Parameterized queries — prevent SQL injection, plan caching'], difficulty: 'Medium–Hard', companyAsk: 'Wave 2–3' },
+    ],
+    companyDSAGuide: [
+      { tier: 'Wave 1 (Nagarro, Epam, GlobalLogic, Persistent)', level: 'Heavy SQL', count: 'Expect 5–8 SQL questions per interview', focus: 'JOINs, GROUP BY, subqueries, stored procedures. They will give you a table structure and ask you to write queries on paper/screen. Know DELETE vs TRUNCATE. Know normalization.', patterns: 'SELECT with JOINs, GROUP BY + HAVING, basic subqueries, DDL commands', leetcodeTarget: 'Practice 30 queries on HackerRank SQL' },
+      { tier: 'Wave 2 (Publicis, Thoughtworks, Hashedin, Tekion)', level: 'Medium SQL', count: 'Expect 3–5 SQL questions', focus: 'Window functions (ROW_NUMBER, RANK), CTEs, self JOIN, query optimization. They care about writing efficient queries, not just correct ones.', patterns: 'Window functions, CTEs, self JOIN, execution plan awareness', leetcodeTarget: 'Practice 20 medium SQL problems' },
+      { tier: 'Wave 3 (Flipkart, Microsoft, Razorpay, Swiggy)', level: 'Light SQL', count: '0–2 SQL questions', focus: 'SQL rarely asked directly. System design rounds may discuss indexing, query optimization, DB design decisions. Microsoft sometimes asks SQL in phone screen.', patterns: 'Indexing strategy, normalization vs denormalization, DB design in system design round', leetcodeTarget: 'Know concepts deeply, less query writing' },
+    ],
+    weeklyTargets: [
+      { week: 'Day 33–34', target: '10 queries', breakdown: 'SELECT, WHERE, ORDER BY, DISTINCT, NULL handling', milestone: 'Can write any basic SELECT query confidently' },
+      { week: 'Day 34–35', target: '10 queries', breakdown: 'All JOIN types, GROUP BY, HAVING, aggregations', milestone: 'Can JOIN 3+ tables and aggregate data' },
+      { week: 'Day 36–37', target: '8 queries', breakdown: 'Subqueries, correlated subqueries, EXISTS vs IN', milestone: 'Can nest queries for complex filtering' },
+      { week: 'Day 38–39', target: '8 queries', breakdown: 'Window functions, CTEs, recursive queries', milestone: 'Can use ROW_NUMBER, RANK, running totals' },
+      { week: 'Day 40–41', target: '8 queries', breakdown: 'Classic interview problems — Nth salary, duplicates, self JOIN', milestone: 'Can solve top 10 most-asked SQL interview Qs' },
+      { week: 'Day 42–44', target: '6 queries', breakdown: 'Performance, indexes, stored procs, execution plan', milestone: 'Can explain WHY a query is slow and how to fix it' },
+    ],
+    iqs: [
+      { q: 'EF Core vs Dapper vs ADO.NET — when would you choose each?', fire: true },
+      { q: 'What is the N+1 problem? How do you fix it in EF Core?', fire: true },
+      { q: 'Eager loading vs Lazy loading — what is the difference?', fire: true },
+      { q: 'What is a database migration? How do you roll back one?', fire: true },
+      { q: 'Explain the Repository pattern — why use it?', fire: true },
+      { q: 'What are the normal forms (1NF, 2NF, 3NF)? Give examples.', fire: true },
+      { q: 'Write a query to find the 2nd highest salary', fire: true },
+      { q: 'What is the difference between WHERE and HAVING?', fire: true },
+      { q: 'Explain INNER JOIN vs LEFT JOIN with example', fire: true },
+      { q: 'What is a CTE? How is it different from a subquery?', fire: true },
+      { q: 'What is ROW_NUMBER vs RANK vs DENSE_RANK? Give example.', fire: true },
+      { q: 'Write a query to find duplicate records in a table', fire: true },
+      { q: 'DELETE vs TRUNCATE vs DROP — what is the difference?', fire: true },
+      { q: 'What is a self JOIN? Give an employee-manager example.', fire: true },
+      { q: 'What is a clustered vs non-clustered index? When to use each?', fire: true },
+      { q: 'How do you optimize a slow SQL query?', fire: true },
+      { q: 'What is optimistic vs pessimistic concurrency? How does EF Core handle it?', fire: false },
+      { q: 'How does EF Core handle transactions? What is SaveChanges atomicity?', fire: false },
+      { q: 'What is a stored procedure vs a function? When to use each?', fire: false },
+      { q: 'What is a correlated subquery? How does it differ from a regular subquery?', fire: false },
+      { q: 'What is an execution plan? How do you read one?', fire: false },
+    ],
+    drill: 'Give me the 30 most commonly asked SQL interview queries with table schema and solutions for a 1 year experience developer'
+  },
+  {
+    id: 'p5',
+    label: 'Phase 5 · Clean Architecture',
+    color: '#3C3489',
+    bgColor: '#EEEDFE',
+    days: 'Days 51–58',
+    title: 'Clean architecture & patterns',
+    subtitle: 'Days 51–58 (8 days)',
+    topics: [
+      { name: 'Layered architecture — API layer, Service layer, Repository layer, Domain', imp: 'hot', days: 'Day 51' },
+      { name: 'DTOs — why entities should not leave service layer, request/response DTOs', imp: 'hot', days: 'Day 51' },
+      { name: 'AutoMapper — profiles, ProjectTo, ReverseMap, custom resolvers', imp: 'hot', days: 'Day 52' },
+      { name: 'Service layer — business logic lives here, not in controller', imp: 'hot', days: 'Day 52' },
+      { name: 'Result pattern — return Result<T> instead of throwing exceptions', imp: 'med', days: 'Day 53' },
+      { name: 'Design patterns — Singleton, Factory Method, Strategy, Observer, Decorator — code each in C#', imp: 'hot', days: 'Days 53–54' },
+      { name: 'Global exception middleware — catch all unhandled exceptions, return ProblemDetails', imp: 'hot', days: 'Day 54' },
+      { name: 'FluentValidation — validators, RuleFor, custom rules, integration with DI', imp: 'hot', days: 'Day 54' },
+      { name: 'MediatR — mediator pattern, IRequest/IRequestHandler, pipeline behaviors, notifications, CQRS implementation', imp: 'hot', days: 'Day 55' },
+      { name: 'Logging — Serilog, structured logging, log levels, sink to file/console', imp: 'hot', days: 'Day 55' },
+      { name: 'API versioning — URL versioning vs header versioning', imp: 'med', days: 'Day 56' },
+      { name: 'Response caching + Cache-Control headers', imp: 'med', days: 'Day 56' },
+      { name: 'Pagination — skip/take, cursor-based, return total count in header', imp: 'hot', days: 'Day 57' },
+      { name: 'Refactor project to clean architecture — all layers properly separated', imp: 'hot', days: 'Day 58' },
+    ],
+    iqs: [
+      { q: 'Why clean architecture? What problem does it solve?', fire: true },
+      { q: 'DTO vs Entity — why should you not return entities directly from API?', fire: true },
+      { q: 'How do you handle errors globally in ASP.NET Core?', fire: true },
+      { q: 'Explain the Strategy pattern with a real .NET example', fire: true },
+      { q: 'What is the Factory pattern? When would you use it?', fire: true },
+      { q: 'What is MediatR? How does it implement CQRS?', fire: true },
+      { q: 'Name 5 design patterns and explain when you would use each', fire: true },
+      { q: 'What is AutoMapper? What are its drawbacks?', fire: false },
+      { q: 'How do you implement pagination in a REST API?', fire: false },
+      { q: 'What is structured logging? Why is it better than Console.WriteLine?', fire: false },
+    ],
+    drill: 'Explain clean architecture in .NET with DTO pattern and global exception handling code example'
+  },
+  {
+    id: 'p6',
+    label: 'Phase 6 · .NET Testing',
+    color: '#3B6D11',
+    bgColor: '#EAF3DE',
+    days: 'Days 59–66',
+    title: 'Unit & integration testing (.NET)',
+    subtitle: 'Days 59–66 (8 days) — often missing from 1yr devs',
+    topics: [
+      { name: 'Testing pyramid — unit vs integration vs e2e, what to test where', imp: 'hot', days: 'Day 59' },
+      { name: 'xUnit — [Fact], [Theory], [InlineData], test project setup', imp: 'hot', days: 'Day 59' },
+      { name: 'Moq — Mock<T>, Setup, Returns, Verify — mocking dependencies', imp: 'hot', days: 'Day 60' },
+      { name: 'Writing unit tests for service layer — mock the repository, test logic', imp: 'hot', days: 'Days 60–61' },
+      { name: 'AAA pattern — Arrange, Act, Assert — every test follows this', imp: 'hot', days: 'Day 61' },
+      { name: 'Test doubles — mock vs stub vs fake vs spy — terminology and when to use each', imp: 'med', days: 'Day 61' },
+      { name: 'Testing controllers — mock services, test status codes and response shape', imp: 'med', days: 'Day 62' },
+      { name: 'Integration tests — WebApplicationFactory, in-memory DB, test full request', imp: 'med', days: 'Day 63' },
+      { name: 'FluentAssertions — readable assertion library', imp: 'med', days: 'Day 64' },
+      { name: 'Test naming convention — MethodName_StateUnderTest_ExpectedBehavior', imp: 'med', days: 'Day 64' },
+      { name: 'Code coverage — what it means, what % is realistic (70–80%)', imp: 'med', days: 'Day 65' },
+      { name: 'Write tests for your own project — at least service layer', imp: 'hot', days: 'Day 66' },
+    ],
+    iqs: [
+      { q: 'What is the difference between unit and integration tests?', fire: true },
+      { q: 'What is Moq? How do you mock a repository in a service test?', fire: true },
+      { q: 'What is the difference between a mock and a stub?', fire: true },
+      { q: 'Explain the Arrange-Act-Assert pattern', fire: true },
+      { q: 'What is WebApplicationFactory? What does it help you test?', fire: false },
+      { q: 'What code coverage percentage is reasonable to aim for?', fire: false },
+    ],
+    drill: 'Show me how to write a unit test in .NET with xUnit and Moq for a service class with a repository dependency'
+  },
+  {
+    id: 'p7',
+    label: 'Phase 7 · TypeScript',
+    color: '#2563EB',
+    bgColor: '#DBEAFE',
+    days: 'Days 67–72',
+    title: 'TypeScript fundamentals',
+    subtitle: 'Days 67–72 (6 days) — essential before Angular',
+    topics: [
+      { name: 'ES6+ features — arrow functions, destructuring, spread/rest, template literals, modules (foundation for everything)', imp: 'hot', days: 'Day 67' },
+      { name: 'TypeScript basics — types (string, number, boolean, any, unknown, never), type inference', imp: 'hot', days: 'Day 67' },
+      { name: 'Interfaces & type aliases — defining shapes, extending, intersection types', imp: 'hot', days: 'Day 68' },
+      { name: 'Enums, tuples, literal types, union types, discriminated unions', imp: 'hot', days: 'Day 68' },
+      { name: 'Generics in TypeScript — generic functions, classes, constraints, utility types', imp: 'hot', days: 'Day 69' },
+      { name: 'Type guards — typeof, instanceof, in operator, custom type guards', imp: 'hot', days: 'Day 69' },
+      { name: 'Utility types — Partial, Required, Pick, Omit, Record, Readonly', imp: 'med', days: 'Day 70' },
+      { name: 'Promises & async/await in TypeScript — typing async functions', imp: 'hot', days: 'Day 70' },
+      { name: 'Strict mode — strictNullChecks, noImplicitAny, why strict mode matters', imp: 'med', days: 'Day 71' },
+      { name: 'Decorators — what they are, how Angular uses them (@Component, @Injectable)', imp: 'med', days: 'Day 72' },
+    ],
+    iqs: [
+      { q: 'What is the difference between interface and type in TypeScript?', fire: true },
+      { q: 'What is the difference between any, unknown, and never?', fire: true },
+      { q: 'Explain generics in TypeScript with an example', fire: true },
+      { q: 'What are type guards? How do you narrow types?', fire: false },
+      { q: 'What are union types and discriminated unions?', fire: false },
+      { q: 'Name some utility types and when you would use them', fire: false },
+    ],
+    drill: 'Explain TypeScript generics, type guards, and utility types with practical code examples for Angular developers'
+  },
+  {
+    id: 'p8',
+    label: 'Phase 8 · Angular',
+    color: '#993556',
+    bgColor: '#FBEAF0',
+    days: 'Days 73–102',
+    title: 'Angular — fundamentals to advanced',
+    subtitle: 'Days 73–102 (30 days) — second heaviest phase',
+    topics: [
+      { name: 'Angular project structure — modules, components, services, pipes', imp: 'hot', days: 'Day 73' },
+      { name: 'Components — @Component, selector, template, styles, encapsulation', imp: 'hot', days: 'Day 73' },
+      { name: 'Data binding — interpolation {{}}, property [], event (), two-way [()]', imp: 'hot', days: 'Day 74' },
+      { name: 'Legacy directives — *ngIf, *ngFor, ngSwitch, ngClass, ngStyle (still in older codebases)', imp: 'hot', days: 'Day 74' },
+      { name: 'Angular 17+ control flow — @if, @else, @for with track, @switch, @empty (new default syntax)', imp: 'hot', days: 'Day 75' },
+      { name: 'Lifecycle hooks — ngOnInit, ngOnDestroy, ngOnChanges, ngAfterViewInit', imp: 'hot', days: 'Day 76' },
+      { name: 'Input/Output decorators — @Input, @Output, EventEmitter, parent-child comms', imp: 'hot', days: 'Day 76' },
+      { name: 'Services & Dependency Injection — providedIn root vs module vs component', imp: 'hot', days: 'Day 77' },
+      { name: 'ViewChild & ContentChild — accessing child components/elements', imp: 'med', days: 'Day 77' },
+      { name: 'Content projection — ng-content, multi-slot projection', imp: 'med', days: 'Day 78' },
+      { name: 'Pipes — built-in (date, currency, async), custom pipes', imp: 'med', days: 'Day 78' },
+      { name: 'Change detection — Default (CheckAlways) vs OnPush strategy, markForCheck', imp: 'hot', days: 'Day 79' },
+      { name: 'HttpClient — GET/POST/PUT/DELETE, headers, params, typed responses', imp: 'hot', days: 'Day 80' },
+      { name: 'HTTP Interceptors — add token to every request, handle 401 globally', imp: 'hot', days: 'Day 81' },
+      { name: 'Error handling in HttpClient — catchError, throwError, retry', imp: 'hot', days: 'Day 81' },
+      { name: 'RxJS — Observable, Subject, BehaviorSubject, ReplaySubject', imp: 'hot', days: 'Day 82' },
+      { name: 'RxJS operators — map, switchMap, mergeMap, concatMap, debounceTime, distinctUntilChanged, takeUntil, forkJoin', imp: 'hot', days: 'Days 83–84' },
+      { name: 'Observable vs Promise — differences, when to convert with firstValueFrom', imp: 'hot', days: 'Day 84' },
+      { name: 'Memory leak prevention — unsubscribe with takeUntil or async pipe', imp: 'hot', days: 'Day 85' },
+      { name: 'Reactive Forms — FormBuilder, FormGroup, FormControl, FormArray', imp: 'hot', days: 'Day 86' },
+      { name: 'Form validation — built-in validators, custom validators, cross-field', imp: 'hot', days: 'Day 87' },
+      { name: 'Reactive vs Template-driven forms — when to use each', imp: 'hot', days: 'Day 87' },
+      { name: 'Routing — RouterModule, Routes array, RouterLink, RouterOutlet', imp: 'hot', days: 'Day 88' },
+      { name: 'Route parameters — snapshot vs observable params, query params', imp: 'hot', days: 'Day 88' },
+      { name: 'Lazy loading modules — loadChildren, route-level code splitting', imp: 'hot', days: 'Day 89' },
+      { name: 'Route Guards — CanActivate, CanDeactivate, Resolve, functional guards (Angular 15+)', imp: 'hot', days: 'Day 89' },
+      { name: 'State management — BehaviorSubject service pattern (must), NgRx basics (bonus)', imp: 'hot', days: 'Days 90–91' },
+      { name: 'Standalone components (Angular 14+) — no NgModule needed, importProvidersFrom', imp: 'hot', days: 'Day 92' },
+      { name: 'Angular signals (Angular 17+) — signal(), computed(), effect(), toSignal()', imp: 'hot', days: 'Days 93–94' },
+      { name: 'Deferrable views (Angular 17+) — @defer, @loading, @placeholder for lazy rendering', imp: 'med', days: 'Day 94' },
+      { name: 'Angular performance — OnPush, trackBy in ngFor, async pipe, bundle analysis', imp: 'med', days: 'Day 95' },
+      { name: 'Revision & catch-up day — revise all Angular concepts, fill gaps', imp: 'med', days: 'Day 96' },
+      { name: 'Build Angular frontend connecting to your .NET API', imp: 'hot', days: 'Days 97–102' },
+    ],
+    iqs: [
+      { q: 'What are the 4 types of data binding in Angular?', fire: true },
+      { q: 'Explain change detection — Default vs OnPush. When do you use OnPush?', fire: true },
+      { q: 'Observable vs Promise — what are the key differences?', fire: true },
+      { q: 'What is switchMap? How is it different from mergeMap?', fire: true },
+      { q: 'How do you prevent memory leaks with observables?', fire: true },
+      { q: 'Reactive vs Template-driven forms — when would you use each?', fire: true },
+      { q: 'What are route guards? Name the types.', fire: true },
+      { q: 'How does lazy loading work in Angular routing?', fire: true },
+      { q: 'What is an HTTP interceptor? What do you use it for?', fire: true },
+      { q: 'What are Angular signals? How do they compare to RxJS?', fire: true },
+      { q: 'What are standalone components? How are they different from module-based?', fire: true },
+      { q: 'What is the new @if/@for control flow syntax in Angular 17+?', fire: false },
+      { q: 'What is BehaviorSubject? How is it used for state management?', fire: false },
+    ],
+    drill: 'Explain Angular change detection OnPush vs Default with a practical example and code'
+  },
+  {
+    id: 'p9',
+    label: 'Phase 9 · Angular Testing',
+    color: '#0E7490',
+    bgColor: '#ECFEFF',
+    days: 'Days 103–108',
+    title: 'Angular testing',
+    subtitle: 'Days 103–108 (6 days) — interviewers do ask this',
+    topics: [
+      { name: 'Angular testing overview — Jasmine + Karma vs Jest, TestBed setup', imp: 'hot', days: 'Day 103' },
+      { name: 'Component testing — TestBed.configureTestingModule, fixture, nativeElement', imp: 'hot', days: 'Day 104' },
+      { name: 'Service testing — inject service, mock HttpClient with HttpClientTestingModule', imp: 'hot', days: 'Day 105' },
+      { name: 'Mocking dependencies — providers with useValue, useClass, jasmine.createSpyObj', imp: 'hot', days: 'Day 105' },
+      { name: 'Testing observables — subscribe in test, fakeAsync + tick, done callback', imp: 'med', days: 'Day 106' },
+      { name: 'Testing pipes & directives — simple isolated tests', imp: 'med', days: 'Day 107' },
+      { name: 'E2E testing awareness — Cypress or Playwright, when to write E2E vs unit tests, testing user flows', imp: 'med', days: 'Day 107' },
+      { name: 'Write tests for your Angular project — at least 2 components + 1 service', imp: 'hot', days: 'Day 108' },
+    ],
+    iqs: [
+      { q: 'How do you test an Angular component? What is TestBed?', fire: true },
+      { q: 'How do you mock an HTTP call in an Angular test?', fire: true },
+      { q: 'What is fakeAsync and tick in Angular testing?', fire: false },
+      { q: 'What is the difference between unit tests, integration tests, and E2E tests in Angular?', fire: false },
+      { q: 'Jasmine vs Jest — what are the differences?', fire: false },
+    ],
+    drill: 'Show me how to write Angular component and service tests with TestBed, mocking, and HttpClientTestingModule'
+  },
+  {
+    id: 'p10',
+    label: 'Phase 10 · Full Stack',
+    color: '#0F6E56',
+    bgColor: '#E1F5EE',
+    days: 'Days 109–120',
+    title: 'Full stack integration',
+    subtitle: 'Days 109–120 (12 days)',
+    topics: [
+      { name: 'CORS setup in .NET to allow Angular dev server', imp: 'hot', days: 'Day 109' },
+      { name: 'JWT storage in Angular — service with BehaviorSubject for auth state', imp: 'hot', days: 'Day 110' },
+      { name: 'HTTP Interceptor — attach Bearer token to every outgoing request', imp: 'hot', days: 'Day 110' },
+      { name: 'Handle 401 in interceptor — redirect to login, clear token', imp: 'hot', days: 'Day 111' },
+      { name: 'Route guards with JWT — CanActivate checks token, redirects if expired', imp: 'hot', days: 'Day 111' },
+      { name: 'Role-based UI — show/hide elements based on user role from token', imp: 'hot', days: 'Day 112' },
+      { name: 'Global error handling UI — toast notifications for API errors', imp: 'med', days: 'Day 112' },
+      { name: 'File upload/download — multipart/form-data from Angular, IFormFile in .NET, progress tracking', imp: 'hot', days: 'Day 113' },
+      { name: 'Environment files in Angular — environment.ts for API base URL', imp: 'med', days: 'Day 113' },
+      { name: 'Real-time concepts — WebSocket vs HTTP polling vs SSE, when to use each', imp: 'hot', days: 'Day 114' },
+      { name: 'SignalR basics — Hub, client connection, send/receive events', imp: 'med', days: 'Day 115' },
+      { name: 'SignalR integration — real-time feature (chat/notifications) in Angular + .NET', imp: 'med', days: 'Days 116–117' },
+      { name: 'End-to-end feature: list, create, edit, delete with auth guard', imp: 'hot', days: 'Days 118–120' },
+    ],
+    portfolioProjects: [
+      {
+        name: '🏗️ Project 1: TaskFlow — Project Management App (mini Jira)',
+        why: 'Shows CRUD + auth + real-time + role-based access + drag-drop — the #1 most impressive project type for full-stack interviews',
+        tech: '.NET Core API · Angular 17+ · EF Core · SQL Server · SignalR · JWT Auth',
+        features: [
+          'User registration & login with JWT + refresh tokens',
+          'Role-based access: Admin creates projects, Members manage tasks, Viewer read-only',
+          'Project boards with columns (To Do, In Progress, Review, Done)',
+          'Drag-and-drop task cards between columns (Angular CDK DragDrop)',
+          'Task details: title, description, priority (Low/Medium/High/Critical), assignee, due date, comments',
+          'Real-time updates with SignalR — when someone moves a task, all users see it instantly',
+          'Dashboard with charts: tasks per status, overdue tasks, team workload (use ng2-charts)',
+          'Filter & search tasks by assignee, priority, status, date range',
+          'File attachments on tasks (image/PDF upload with IFormFile)',
+          'Email notification on task assignment (SendGrid or SMTP — bonus)',
+          'Pagination + sorting on task lists',
+          'Clean architecture: API → Service → Repository → Domain layers',
+          'Unit tests for service layer (xUnit + Moq)',
+          'Swagger API documentation',
+          'Docker-compose: API + SQL Server + Angular in one command',
+        ],
+        resume: 'Built a full-stack project management app with .NET Core API, Angular 17, JWT auth with role-based access (Admin/Member/Viewer), real-time task updates via SignalR, drag-and-drop Kanban board, file uploads, and dashboard analytics. Followed clean architecture with unit tests (85% service coverage). Dockerized for deployment.',
+        interviewTalk: 'This project lets you answer: "Walk me through your project architecture", "How did you handle auth?", "How did you implement real-time?", "How did you structure your Angular state?", "Show me your API design", "How did you test it?"',
+        difficulty: 'Medium-High',
+        timeToBuild: '15–20 days',
+      },
+      {
+        name: '🛒 Project 2: ShopKart — E-Commerce Platform',
+        why: 'Every interviewer understands e-commerce. Covers payment gateway (Razorpay), search/filter, cart logic, order management — shows you can build production-grade features',
+        tech: '.NET Core API · Angular 17+ · EF Core · SQL Server · Razorpay · Dapper (reports)',
+        features: [
+          'Product catalog with categories, images, price, stock (CRUD for admin)',
+          'Product image upload with preview (multipart/form-data + IFormFile)',
+          'Search with autocomplete + filter by category, price range, rating',
+          'Shopping cart — add/remove/update quantity, persist across sessions',
+          'Checkout flow: cart → shipping address → payment → order confirmation',
+          'Razorpay payment integration — generate order, verify payment, handle webhooks',
+          'Order management: order history, order status (Placed → Shipped → Delivered)',
+          'Admin panel: manage products, view orders, update order status, sales dashboard',
+          'User roles: Customer, Admin (route guards + role-based UI)',
+          'JWT authentication with refresh token rotation',
+          'Product reviews & ratings (average rating calculation)',
+          'Pagination + sorting on product listing (server-side)',
+          'Responsive Angular UI with Angular Material or PrimeNG',
+          'Dapper for complex report queries (top selling products, revenue by category)',
+          'Global error handling + Serilog logging',
+        ],
+        resume: 'Built a full-stack e-commerce platform with .NET Core + Angular 17. Implemented Razorpay payment gateway with webhook verification, product catalog with image upload, search with filters, shopping cart, order lifecycle management, admin dashboard with sales analytics (Dapper for reports), and role-based access. Clean architecture with global error handling and structured logging.',
+        interviewTalk: 'Instant credibility boost — "I integrated Razorpay" shows you can work with third-party APIs. Payment flow is a system design question in itself. Admin panel shows you understand RBAC deeply.',
+        difficulty: 'Medium-High',
+        timeToBuild: '18–25 days',
+      },
+      {
+        name: '💬 Project 3: BuzzChat — Real-Time Chat Application',
+        why: 'Shows SignalR mastery, WebSocket understanding, message persistence, online status — stands out because most freshers only build CRUD apps',
+        tech: '.NET Core API · Angular 17+ · SignalR · EF Core · SQL Server · JWT Auth',
+        features: [
+          'User registration & login with JWT',
+          'One-on-one private messaging in real-time (SignalR WebSocket)',
+          'Group chat — create groups, add/remove members, group messaging',
+          'Online/offline status indicator — green dot for online users (SignalR presence)',
+          'Typing indicator — "User is typing..." in real-time',
+          'Message history — load previous messages with infinite scroll (pagination)',
+          'Unread message count badge per conversation',
+          'File/image sharing in chat (upload + preview + download)',
+          'Message read receipts — single tick (sent) → double tick (read)',
+          'Search conversations and messages',
+          'Push notifications for new messages (browser Notification API)',
+          'User profile with avatar upload',
+          'Angular signals for reactive UI state (online users, unread counts)',
+          'Responsive mobile-friendly UI',
+          'Connection handling — auto-reconnect on network drop (SignalR retry policy)',
+        ],
+        resume: 'Built a real-time chat application with .NET Core + Angular 17 using SignalR WebSockets. Features include private/group messaging, online presence tracking, typing indicators, read receipts, file sharing, message search, and push notifications. Used Angular signals for reactive state management. Implemented auto-reconnect on connection drop.',
+        interviewTalk: 'This is the ultimate SignalR showcase. When they ask "Have you worked with WebSockets/real-time?", you have a full project. The presence tracking + typing indicator shows you understand advanced SignalR patterns. Very few 1 YOE devs have this.',
+        difficulty: 'High',
+        timeToBuild: '15–20 days',
+      },
+    ],
+    projectStrategy: {
+      recommendation: 'Build Project 1 (TaskFlow) as your MAIN project — it covers the most interview topics. If you have time, build Project 2 (ShopKart) for Razorpay integration. Project 3 is a bonus differentiator.',
+      buildOrder: '1. TaskFlow (mandatory) → 2. ShopKart (strongly recommended) → 3. BuzzChat (bonus flex)',
+      github: 'Push to GitHub with a detailed README: project description, screenshots, tech stack, how to run locally, API endpoints, architecture diagram. Pin it on your GitHub profile.',
+      deployment: 'Deploy at least one project: API on Railway/Azure, Angular on Vercel/Netlify. Live demo link on resume = instant credibility.',
+      resumeTip: 'List 2 projects on resume. Each project gets 3–4 bullet points. Start each bullet with an action verb: Built, Implemented, Integrated, Designed, Optimized.',
+    },
+    whatActuallyMatters: [
+      { action: 'Read your resume project bullets', frequency: '100% — every interviewer', impact: 'hot', detail: 'This is the ONLY thing every interviewer sees. Make your 3–4 bullet points perfect. Example: "Built a full-stack project management app with .NET Core + Angular 17, JWT auth with role-based access, real-time task updates via SignalR, clean architecture with 85% test coverage."' },
+      { action: 'Ask you to EXPLAIN the project verbally', frequency: '95% — almost every round', impact: 'hot', detail: 'They will say "Walk me through your project." You need a 2-minute answer covering: what it does → tech stack → architecture (layers) → 1–2 interesting features → challenges you solved. Practice this 20 times until it flows naturally.' },
+      { action: 'Ask deep follow-up questions', frequency: '80% — technical rounds', impact: 'hot', detail: 'After your walkthrough, they dig deeper: "Why did you choose clean architecture?", "How does your JWT flow work?", "How did you handle real-time updates?", "What happens if two users edit the same task?" — You MUST know every feature you listed.' },
+      { action: 'Glance at your GitHub repo', frequency: '30–40% — mostly Wave 2–3', impact: 'med', detail: 'They spend 30 seconds scanning your README. If they see: professional README + screenshots + clean folder structure → positive impression. If they see: empty README + messy code → negative impression. 30 seconds is all you get.' },
+      { action: 'Read your README / screenshots', frequency: '20–30%', impact: 'med', detail: 'A good README has: 1-line description, screenshot/GIF demo, tech stack badges, how to run locally, API endpoints table, architecture diagram (draw.io). This takes 1 hour to write and lasts forever.' },
+      { action: 'Click the live deployed link', frequency: '5–10% — very rare', impact: 'new', detail: 'Almost nobody actually visits your deployed app. But having "Live Demo: https://..." on your resume shows you understand deployment. Spend 1 hour deploying, not 1 week perfecting the deployed version.' },
+      { action: 'Clone and run your code locally', frequency: '<3% — almost never', impact: 'new', detail: 'Don\'t stress about this. But DO make sure your code runs locally — you might need to screen-share and demo it in a rare Wave 3 interview.' },
+    ],
+    afterBuildingChecklist: [
+      { item: 'Practice your 2-minute project walkthrough — record yourself, listen back, refine', priority: 'hot' },
+      { item: 'Prepare answers for: "Why this architecture?", "What was the hardest part?", "What would you improve?"', priority: 'hot' },
+      { item: 'Know every API endpoint by heart — method, route, request body, response', priority: 'hot' },
+      { item: 'Draw your architecture diagram on paper in 30 seconds — layers, flow, DB tables', priority: 'hot' },
+      { item: 'Explain your auth flow end-to-end: login → JWT → interceptor → refresh → logout', priority: 'hot' },
+      { item: 'Write a professional README with screenshots/GIF, tech stack, setup instructions', priority: 'hot' },
+      { item: 'Clean up code — remove console.log, commented code, unused imports. Consistent naming.', priority: 'hot' },
+      { item: 'Pin the project on your GitHub profile — it shows when recruiters visit', priority: 'med' },
+      { item: 'Add star GitHub topics/tags: dotnet, angular, jwt, signalr, clean-architecture', priority: 'med' },
+      { item: 'Deploy API (Railway/Azure free tier) + Angular (Vercel/Netlify free)', priority: 'med' },
+      { item: 'Add the GitHub link and tech stack to your LinkedIn Featured section', priority: 'med' },
+      { item: 'Do a mock interview with a friend — let them ask anything about the project', priority: 'hot' },
+    ],
+    readmeTemplate: {
+      sections: ['Project title + 1-line description', 'Screenshot or GIF demo', 'Tech stack (with badges/icons)', 'Features list (bullet points)', 'Architecture diagram', 'API endpoints table (Method | Route | Description)', 'How to run locally (step-by-step)', 'Environment variables needed', 'Folder structure overview', 'What I learned / Challenges faced'],
+      tip: 'Use shields.io for tech badges. Use draw.io for architecture diagram. Use a screen recorder for GIF demo. Total time to write: 1–2 hours. This README will be seen by more people than your deployed app ever will.',
+    },
+    iqs: [
+      { q: 'Walk me through the full request from Angular to DB and back', fire: true },
+      { q: 'How do you attach a JWT token to every Angular HTTP request?', fire: true },
+      { q: 'How do you handle token expiry in the Angular client?', fire: true },
+      { q: 'How do you implement file upload from Angular to .NET API?', fire: true },
+      { q: 'What is WebSocket? How is it different from HTTP?', fire: true },
+      { q: 'Walk me through your project architecture — layers, patterns, decisions', fire: true },
+      { q: 'What was the most challenging feature you built? How did you solve it?', fire: true },
+      { q: 'What is SignalR? How does it differ from REST?', fire: false },
+    ],
+    drill: 'Show me how Angular HTTP interceptor attaches JWT and handles 401 with code example'
+  },
+  {
+    id: 'p11',
+    label: 'Phase 11 · DevOps',
+    color: '#5F5E5A',
+    bgColor: '#F1EFE8',
+    days: 'Days 121–128',
+    title: 'Docker, Git & deployment',
+    subtitle: 'Days 121–128 (8 days)',
+    topics: [
+      { name: 'Git — branching strategy (feature/main/develop), rebase vs merge, PRs', imp: 'hot', days: 'Day 121' },
+      { name: 'Git commands you must know — stash, cherry-pick, reset, revert, reflog', imp: 'hot', days: 'Day 121' },
+      { name: 'Docker basics — image, container, Dockerfile, docker run, docker-compose', imp: 'hot', days: 'Day 122' },
+      { name: 'Dockerfile for .NET API — multi-stage build', imp: 'med', days: 'Day 123' },
+      { name: 'docker-compose — run API + SQL Server together locally', imp: 'med', days: 'Day 123' },
+      { name: 'Nginx basics — reverse proxy concept, serving Angular static files, proxy_pass to API', imp: 'med', days: 'Day 123' },
+      { name: 'CI/CD concepts — build → test → deploy pipeline, GitHub Actions basics', imp: 'hot', days: 'Day 124' },
+      { name: 'Deploy .NET API — Azure App Service or Railway (simple option)', imp: 'med', days: 'Days 125–126' },
+      { name: 'Deploy Angular — Nginx static hosting or Vercel/Netlify', imp: 'med', days: 'Day 127' },
+      { name: 'Environment variables in production — secrets, config management', imp: 'med', days: 'Day 128' },
+      { name: 'Monitoring basics — health check endpoints, application logging in prod, basic APM concepts', imp: 'med', days: 'Day 128' },
+    ],
+    iqs: [
+      { q: 'What is Docker? What problem does it solve?', fire: true },
+      { q: 'Explain CI/CD — what happens at each stage?', fire: true },
+      { q: 'What is a reverse proxy? Why use Nginx in front of your .NET API?', fire: true },
+      { q: 'Git rebase vs merge — what is the difference?', fire: false },
+      { q: 'How do you manage secrets/env variables in production?', fire: false },
+      { q: 'How do you monitor a .NET application in production?', fire: false },
+    ],
+    drill: 'Explain Docker basics for a .NET developer — Dockerfile, docker-compose, and why it matters in interviews'
+  },
+  {
+    id: 'p12',
+    label: 'Phase 12 · System Design',
+    color: '#534AB7',
+    bgColor: '#EEEDFE',
+    days: 'Days 129–140',
+    title: 'System design basics',
+    subtitle: 'Days 129–140 (12 days) — expanded',
+    topics: [
+      { name: 'REST API design — resource naming, HTTP status codes, versioning', imp: 'hot', days: 'Day 129' },
+      { name: 'Monolith vs microservices — tradeoffs, when to use each', imp: 'hot', days: 'Day 130' },
+      { name: 'Caching — in-memory (IMemoryCache), distributed (Redis basics)', imp: 'hot', days: 'Day 130' },
+      { name: 'Database design — normalization, denormalization, when each is right', imp: 'med', days: 'Day 131' },
+      { name: 'SQL vs NoSQL — when to choose which, explain with examples', imp: 'med', days: 'Day 131' },
+      { name: 'CAP theorem — Consistency, Availability, Partition tolerance, tradeoffs', imp: 'hot', days: 'Day 132' },
+      { name: 'Load balancing — horizontal vs vertical scaling, sticky sessions', imp: 'med', days: 'Day 133' },
+      { name: 'Message queues — concept of async processing, RabbitMQ / Azure Service Bus idea', imp: 'med', days: 'Day 133' },
+      { name: 'CQRS pattern — Command Query Responsibility Segregation, read/write separation', imp: 'hot', days: 'Day 134' },
+      { name: 'Event-driven architecture — events, event sourcing basics, pub/sub pattern', imp: 'med', days: 'Day 135' },
+      { name: 'Design a URL shortener — walk through components (very common)', imp: 'hot', days: 'Day 136' },
+      { name: 'Design a simple auth system — explain all components', imp: 'hot', days: 'Day 137' },
+      { name: 'API rate limiting — token bucket, leaky bucket concepts', imp: 'med', days: 'Day 138' },
+      { name: 'Circuit breaker pattern — Polly in .NET, retry policy, fallback policy, bulkhead isolation', imp: 'med', days: 'Day 138' },
+      { name: 'CDN (Content Delivery Network) — what it is, when to use, static assets delivery, edge caching', imp: 'med', days: 'Day 139' },
+      { name: 'API gateway pattern — routing, aggregation, cross-cutting concerns', imp: 'med', days: 'Day 139' },
+      { name: 'Practice: explain your project architecture like a senior dev', imp: 'hot', days: 'Day 140' },
+    ],
+    iqs: [
+      { q: 'How would you design a scalable REST API?', fire: true },
+      { q: 'Monolith vs microservices — what are the tradeoffs?', fire: true },
+      { q: 'What is caching? When should you cache?', fire: true },
+      { q: 'What is CQRS? When would you use it?', fire: true },
+      { q: 'What is the CAP theorem? Explain with examples.', fire: true },
+      { q: 'What is a circuit breaker? How does Polly implement it in .NET?', fire: true },
+      { q: 'What is a CDN? When would you use one?', fire: false },
+      { q: 'SQL vs NoSQL — when would you choose NoSQL?', fire: false },
+      { q: 'How does a load balancer work?', fire: false },
+      { q: 'What is event-driven architecture?', fire: false },
+    ],
+    drill: 'Walk me through designing a URL shortener system step by step for a junior interview'
+  },
+  {
+    id: 'p13',
+    label: 'Phase 13 · Behavioral',
+    color: '#9D174D',
+    bgColor: '#FDF2F8',
+    days: 'Days 141–145',
+    title: 'Behavioral & soft skills prep',
+    subtitle: 'Days 141–145 (5 days) — the round most devs skip',
+    topics: [
+      { name: 'Tell me about yourself — craft a 90-second story: background → current role → why switching', imp: 'hot', days: 'Day 141' },
+      { name: 'Why are you leaving? — frame positively: growth, challenge, learning, never badmouth', imp: 'hot', days: 'Day 141' },
+      { name: 'Project walkthrough — explain your project architecture, your role, decisions you made', imp: 'hot', days: 'Day 142' },
+      { name: 'STAR method — Situation, Task, Action, Result for every behavioral answer', imp: 'hot', days: 'Day 142' },
+      { name: 'Conflict resolution — disagreement with teammate, how you handled it professionally', imp: 'med', days: 'Day 143' },
+      { name: 'Handling pressure / tight deadlines — real example with outcome', imp: 'med', days: 'Day 143' },
+      { name: 'What is your biggest weakness? — answer honestly but show improvement', imp: 'med', days: 'Day 144' },
+      { name: 'Describe a time you failed — be honest, show what you learned, never blame others', imp: 'med', days: 'Day 144' },
+      { name: 'How do you stay updated with technology? — blogs, docs, YouTube, side projects, communities', imp: 'med', days: 'Day 145' },
+      { name: 'Questions to ask the interviewer — team size, tech stack, code review process, growth path', imp: 'hot', days: 'Day 144' },
+      { name: 'Mock interview practice — do at least 2 full mock interviews (use a friend or AI)', imp: 'hot', days: 'Day 145' },
+    ],
+    iqs: [
+      { q: 'Tell me about yourself', fire: true },
+      { q: 'Why are you looking for a change?', fire: true },
+      { q: 'Walk me through a challenging project you worked on', fire: true },
+      { q: 'Tell me about a time you disagreed with a teammate', fire: true },
+      { q: 'Tell me about a time you made a mistake at work. How did you handle it?', fire: true },
+      { q: 'How do you keep yourself updated with new technologies?', fire: false },
+      { q: 'Where do you see yourself in 3 years?', fire: false },
+      { q: 'What questions do you have for us?', fire: false },
+    ],
+    drill: 'Help me prepare behavioral interview answers using the STAR method for a 1-year developer switching companies'
+  },
+  {
+    id: 'p14',
+    label: 'Phase 14 · Job Hunt',
+    color: '#B45309',
+    bgColor: '#FEF3C7',
+    days: 'Starts Day 90 (parallel)',
+    title: 'Job hunt strategy & application plan',
+    subtitle: 'Starts Day 90, runs parallel — the phase that actually gets you the offer',
+    isJobHunt: true,
+    topics: [
+      { name: 'Resume — 1 page max, quantify impact ("Built REST API serving 10K requests/day"), no objectives section', imp: 'hot', days: 'Day 90' },
+      { name: 'Resume projects section — list your full-stack project with tech stack, link to GitHub, 3–4 bullet points', imp: 'hot', days: 'Day 90' },
+      { name: 'GitHub profile — pin your best project, write a clear README with screenshots, keep contribution graph green', imp: 'hot', days: 'Day 91' },
+      { name: 'LinkedIn optimization — headline = ".NET + Angular Full-Stack Developer", add skills, set #OpenToWork', imp: 'hot', days: 'Day 91' },
+      { name: 'Naukri profile — update headline, add key skills, set preferred salary to 8–12 LPA, enable recruiter visibility', imp: 'hot', days: 'Day 92' },
+      { name: 'Company list — prepare a spreadsheet: Company, Role, Applied Date, Status, Salary Range, Contact', imp: 'hot', days: 'Day 92' },
+      { name: 'Wave 1 apply (Day 93–100) — apply to 8–10 service companies as warm-up: Nagarro, Epam, GlobalLogic, NeoSOFT, Cyient', imp: 'hot', days: 'Days 93–100' },
+      { name: 'Wave 1 targets — these are practice interviews, expect 6–8 LPA offers, build confidence here', imp: 'med', days: 'Days 93–100' },
+      { name: 'Wave 2 apply (Day 100–115) — apply to 10–12 mid-tier companies: Publicis Sapient, Thoughtworks, Hashedin, Tekion, Juspay', imp: 'hot', days: 'Days 100–115' },
+      { name: 'Wave 2 targets — serious targets, expect 8–14 LPA, these are your main offers', imp: 'hot', days: 'Days 100–115' },
+      { name: 'Wave 3 apply (Day 115–135) — apply to 5–8 dream companies: Atlassian, Razorpay, Flipkart, PhonePe, Freshworks, Zoho', imp: 'hot', days: 'Days 115–135' },
+      { name: 'Wave 3 targets — moonshots, expect 12–20+ LPA, even 1 crack here changes everything', imp: 'med', days: 'Days 115–135' },
+      { name: 'How to apply — LinkedIn Easy Apply, company career page, Naukri, referrals (best), cold DM hiring managers', imp: 'hot', days: 'Ongoing' },
+      { name: 'Referrals strategy — message 2nd-degree connections on LinkedIn: "Hi, I see you work at X. I applied for Y role — could you refer me?"', imp: 'hot', days: 'Ongoing' },
+      { name: 'Interview tracking — after each interview, write down every question asked, your answer, what you could improve', imp: 'hot', days: 'Ongoing' },
+      { name: 'Post-rejection action — ask recruiter for feedback, note weak areas, spend 2 days fixing those gaps, re-apply in 3 months', imp: 'med', days: 'Ongoing' },
+      { name: 'Salary negotiation — never accept first offer, always say "I have other processes running", counter with +15–20%', imp: 'hot', days: 'When offers come' },
+      { name: 'Competing offers — having 2–3 offers is the best negotiation tool, tell Company B about Company A offer', imp: 'hot', days: 'When offers come' },
+      { name: 'Offer evaluation — don\'t just look at CTC: check base vs variable split, WFH policy, tech stack, team size, growth path', imp: 'hot', days: 'When offers come' },
+      { name: 'Notice period — most companies prefer ≤30 days, negotiate buyout if current is 60–90 days', imp: 'med', days: 'When offers come' },
+    ],
+    iqs: [
+      { q: 'What salary should I ask for? — Always say your "expected" CTC, never current. Target: 8–12 LPA from 4 LPA', fire: true },
+      { q: 'When do I start applying? — Day 90. Not Day 145. Early interviews = practice.', fire: true },
+      { q: 'How many companies to apply to? — Minimum 20–25 across all waves. More applications = more options.', fire: true },
+      { q: 'How to get referrals? — LinkedIn 2nd connections, college alumni, tech Twitter, Discord communities.', fire: true },
+      { q: 'What if I fail interviews? — Expected. First 3–5 are warm-up. Track questions, fix gaps, re-attempt.', fire: true },
+      { q: 'Should I accept the first offer? — No. Wait for 2–3 offers, then negotiate with competing offers.', fire: false },
+    ],
+    companyTiers: [
+      {
+        tier: 'Wave 1 — Warm-up (Day 93–100)',
+        target: '6–8 LPA',
+        purpose: 'Build interview confidence, get a safety offer',
+        companies: 'Nagarro, Epam, GlobalLogic, NeoSOFT, Cyient, Mphasis, LTIMindtree, Persistent',
+        rounds: 'Usually 2–3 rounds: DSA/coding → technical (backend+frontend) → HR',
+        approach: 'Apply via Naukri + LinkedIn. These respond fast. Prepare Phase 1–6 topics well.',
+        timing: '1–2 weeks from apply to offer'
+      },
+      {
+        tier: 'Wave 2 — Main targets (Day 100–115)',
+        target: '8–14 LPA',
+        purpose: 'Your primary salary jump — most offers will come from here',
+        companies: 'Publicis Sapient, Thoughtworks, Hashedin (Deloitte), Tekion, Juspay, Lenskart, PayU, BrowserStack, Innovaccer',
+        rounds: '3–4 rounds: Online DSA → machine coding/take-home → system design + technical → HR/culture fit',
+        approach: 'Referrals work best here. LinkedIn DM people who work there. Apply on career page + Naukri simultaneously.',
+        timing: '2–4 weeks from apply to offer'
+      },
+      {
+        tier: 'Wave 3 — Dream companies (Day 115–135)',
+        target: '12–20+ LPA',
+        purpose: 'Moonshots — even 1 crack here is life-changing',
+        companies: 'Atlassian, Razorpay, Flipkart, PhonePe, Freshworks, Zoho, Cred, Swiggy, Groww, Zerodha',
+        rounds: '4–5 rounds: Online test → DSA (2 rounds) → system design → hiring manager → HR',
+        approach: 'Strong referral almost mandatory. Solve 150+ LeetCode. Know system design cold. Project must impress.',
+        timing: '3–6 weeks from apply to offer'
+      }
+    ],
+    packageGuide: {
+      currentCTC: '4 LPA',
+      targets: [
+        { range: '6–7 LPA', hike: '50–75%', difficulty: 'Safe', how: 'Clear 2–3 Wave 1 interviews' },
+        { range: '8–10 LPA', hike: '100–150%', difficulty: 'Very achievable', how: 'Clear Wave 2 companies with solid prep' },
+        { range: '12–15 LPA', hike: '200–275%', difficulty: 'Stretch but doable', how: 'Crack top Wave 2 or Wave 3 company' },
+        { range: '16–20 LPA', hike: '300–400%', difficulty: 'Exceptional', how: 'Crack product company + strong DSA + negotiate with competing offers' },
+      ]
+    },
+    hrQuestions: [
+      {
+        q: 'What is your current CTC?',
+        whoAsks: 'All companies ask this — service companies strictly, product companies loosely',
+        doesntMatter: 'Atlassian, Razorpay, Flipkart, Google, Microsoft — they pay based on interview performance, not current CTC',
+        answer: 'My current CTC is 4 LPA. However, I\'ve significantly upskilled in full-stack .NET + Angular with clean architecture, unit testing, and deployment. Based on the market range for this role and my current skill set, my expected CTC is 10–12 LPA.',
+        tip: 'Never lie — companies verify via offer letter/payslips. But always pivot immediately to your EXPECTED CTC. Your current salary reflects your old company\'s budget, not your skills.',
+        imp: 'hot'
+      },
+      {
+        q: 'Your current CTC is 4 LPA — why should we give you 10–12 LPA? That\'s a 150% hike.',
+        whoAsks: 'Service companies (Nagarro, Epam, GlobalLogic), mid-tier product companies',
+        doesntMatter: 'Top product companies — they have fixed salary bands per level regardless of your history',
+        answer: 'I understand it\'s a significant jump. My current company is a small-scale organization that pays below market rate. I\'ve checked the market benchmark on Glassdoor and Levels.fyi for a full-stack .NET + Angular developer with my skill level, and 10–12 LPA is the standard range. I\'m confident my technical rounds will reflect my capabilities.',
+        tip: 'If they insist on % hike (like max 40% = 5.6 LPA), politely decline and move to better companies. Companies that cap hikes will always underpay you.',
+        imp: 'hot'
+      },
+      {
+        q: 'Do you have any other offers right now?',
+        whoAsks: 'Almost every HR asks this — it decides your negotiation power',
+        doesntMatter: 'N/A — everyone asks, but how you answer changes everything',
+        answer: 'Yes, I\'m currently evaluating a couple of opportunities. I have one offer at 8.5 LPA and another process is at the final round. I\'m looking for the right combination of role, growth, and compensation — which is why I\'m very interested in this position.',
+        tip: 'If you don\'t have offers yet, say: "I have a few processes at advanced stages." This is true if you\'ve given interviews. Never say "no, this is my only company" — you lose all negotiation power instantly.',
+        imp: 'hot'
+      },
+      {
+        q: 'What is your expected CTC?',
+        whoAsks: 'Every company — this is THE most important question in the entire process',
+        doesntMatter: 'N/A — universal question',
+        answer: 'Based on my full-stack skill set and market standards, I\'m expecting 10–12 LPA. I\'m flexible for the right role and growth opportunity, but this is the range I\'m targeting.',
+        tip: 'Always give a RANGE, not a single number. Say 10–12, not 10. They\'ll negotiate from your bottom number. If you say 10, they offer 8. If you say 10–12, they offer 10. Also never say "negotiable" — it signals you\'ll accept anything.',
+        imp: 'hot'
+      },
+      {
+        q: 'Why are you leaving your current company?',
+        whoAsks: 'Every company — HR round, sometimes even technical round',
+        doesntMatter: 'N/A — universal question',
+        answer: 'I\'ve learned a lot in my current role, especially in .NET and Angular development. Now I\'m looking for an environment with larger-scale challenges, better engineering practices, and a team where I can grow into a senior role. I feel your company offers exactly that kind of opportunity.',
+        tip: 'NEVER badmouth your current company, manager, or colleagues — even if they deserve it. Always frame as "I want MORE" not "I\'m running FROM." Mention: growth, challenges, learning, better tech stack, scale.',
+        imp: 'hot'
+      },
+      {
+        q: 'What if we can only offer 7 LPA?',
+        whoAsks: 'Mid-tier service companies — this is a negotiation tactic',
+        doesntMatter: 'Top product companies — they have fixed bands and don\'t low-ball like this',
+        answer: 'I appreciate the offer. However, I\'m currently evaluating opportunities in the 10–12 LPA range, and I have another offer at 8.5 LPA. If there\'s flexibility to come closer to my expected range, I\'d be very excited to join. Otherwise, I may need to go with the other offer.',
+        tip: 'This is where Wave 1 offers save you. If you have a 7–8 LPA offer in hand, you can confidently decline a 7 LPA offer. Never bluff about having offers you don\'t have — but DO have real offers before negotiating.',
+        imp: 'hot'
+      },
+      {
+        q: 'Can you share your current offer letter / payslips for verification?',
+        whoAsks: 'Service companies (almost always), some mid-tier product companies',
+        doesntMatter: 'Atlassian, Razorpay, Microsoft, Google, Goldman Sachs — they typically don\'t ask for payslips',
+        answer: 'Yes, I can share the required documents for background verification. My current CTC is 4 LPA — I\'ve been transparent about that. My expected CTC is based on market value for my skills, not a % hike on my current salary.',
+        tip: 'This is why you should never lie about current CTC. They WILL verify. But after verification, reiterate that your expected CTC is based on skills and market rate, not current salary. If they still insist on % hike, this company isn\'t worth joining.',
+        imp: 'hot'
+      },
+      {
+        q: 'What is your notice period?',
+        whoAsks: 'Every company — a long notice period can lose you the offer',
+        doesntMatter: 'N/A — universal question',
+        answer: 'My current notice period is [30/60/90] days. However, I can negotiate with my current employer for an early release. If needed, I\'m open to discussing a buyout arrangement.',
+        tip: 'If your notice period is 90 days, start talking to your manager about early release BEFORE you get offers. Many companies reject candidates with 90-day notice periods. Best case: negotiate to 30 days. Some companies buy out your notice period — ask about this.',
+        imp: 'hot'
+      },
+      {
+        q: 'Where do you see yourself in 3–5 years?',
+        whoAsks: 'Service companies + HR rounds at product companies',
+        doesntMatter: 'Technical rounds at product companies — they care about code, not life plans',
+        answer: 'In the next 3 years, I see myself growing into a senior full-stack developer, leading small modules independently, mentoring juniors, and contributing to architectural decisions. In 5 years, I\'d like to be in a tech lead or senior engineer role, driving end-to-end feature delivery.',
+        tip: 'Show ambition but stay realistic. Don\'t say "I want to be a CTO" at 1 YOE — it sounds disconnected. Don\'t say "I want to start my own company" — they\'ll think you\'ll leave soon. Focus on growing WITHIN the company.',
+        imp: 'med'
+      },
+      {
+        q: 'Why do you want to join our company specifically?',
+        whoAsks: 'Most companies — especially in HR/culture fit rounds',
+        doesntMatter: 'Rarely skipped — but product companies may focus more on technical fit',
+        answer: 'I\'ve researched [Company Name] and I\'m impressed by [mention something specific: tech blog, product, engineering culture, open-source contributions, Glassdoor reviews, recent funding]. The role aligns perfectly with my full-stack .NET + Angular experience, and I\'m excited about the scale of problems your team solves.',
+        tip: 'ALWAYS research the company before HR round. Visit their engineering blog, LinkedIn page, Glassdoor. Mention ONE specific thing. Generic answers like "it\'s a great company" = instant red flag.',
+        imp: 'hot'
+      },
+      {
+        q: 'What questions do you have for us?',
+        whoAsks: 'Every company — at the end of every round',
+        doesntMatter: 'N/A — universal, and saying "no questions" is a big mistake',
+        answer: 'Yes! I\'d love to know: (1) What does the team structure look like — how many frontend vs backend devs? (2) What does the code review process look like? (3) What\'s the tech stack — are you on the latest .NET and Angular versions? (4) What does the growth path look like for this role — what would success in 6 months look like?',
+        tip: 'ALWAYS ask 2–4 questions. It shows genuine interest. Never ask about salary here (save for HR round). Good questions: team size, tech stack, deployment frequency, code review culture, learning opportunities. Avoid: "when will I get promoted?" or "how many leaves?"',
+        imp: 'hot'
+      },
+      {
+        q: 'Tell me about yourself.',
+        whoAsks: 'Every single interview — first question in almost every round',
+        doesntMatter: 'N/A — literally universal, your answer sets the tone for the entire interview',
+        answer: 'I\'m a full-stack developer with 1+ years of experience in .NET Core and Angular. In my current role at [Company], I work on building RESTful APIs with ASP.NET Core, EF Core for database operations, and Angular for the frontend. I\'ve built features like [mention 1–2 specific things: user authentication with JWT, CRUD modules with real-time updates]. I\'m now looking for a role where I can work on larger-scale systems, follow clean architecture practices, and grow as an engineer. That\'s what brought me to this opportunity.',
+        tip: 'Keep it under 90 seconds. Structure: (1) Who you are (2) What you do now (3) 1–2 highlights (4) Why you\'re here. Never start with "I was born in..." or your 10th grade marks. Practice this answer 20 times — it\'s your opening impression.',
+        imp: 'hot'
+      },
+      {
+        q: 'We can offer 8 LPA. Will you accept?',
+        whoAsks: 'Mid-tier companies — this is the final negotiation moment',
+        doesntMatter: 'N/A — this is the moment your entire prep pays off',
+        answer: 'Thank you for the offer — I\'m genuinely excited about the role. I was expecting something closer to 10 LPA based on my skills and other opportunities I\'m evaluating. Is there flexibility to meet somewhere in the middle?',
+        tip: 'This is the +15–20% counter. They offered 8, you ask for 10 (+25%). They\'ll likely settle at 8.5–9.5. You just earned 50K–1.5L more per year by saying one sentence. NEVER say "yes" immediately — always take 24 hours to "think about it" even if you plan to accept.',
+        imp: 'hot'
+      },
+      {
+        q: 'Are you okay with work from office / hybrid / relocation?',
+        whoAsks: 'Most companies — especially post-COVID clarity',
+        doesntMatter: 'Fully remote companies — but most Indian companies are hybrid now',
+        answer: 'Yes, I\'m open to [WFO/hybrid/relocation to city]. I\'m flexible and happy to work in whatever arrangement the team follows.',
+        tip: 'Be honest here. If you can\'t relocate, say so early — don\'t waste interview rounds. But being flexible about location significantly increases your options. If a company offers 12 LPA but requires Bangalore relocation — it\'s usually worth it for career growth.',
+        imp: 'med'
+      },
+      {
+        q: 'Should I do DSA in Java or C#? My tech stack is .NET but I code DSA in Java.',
+        whoAsks: 'Nobody asks this directly — but you need to decide before you start preparing',
+        doesntMatter: 'All companies accept Java, C++, Python, C# for DSA rounds. Language doesn\'t matter — only the solution matters.',
+        answer: 'Do DSA in Java. It\'s the most popular DSA language — LeetCode, GeeksforGeeks, all editorial solutions are in Java. DSA rounds never ask OOP or framework questions. Technical rounds (where they ask OOP, SOLID, DI) are always in C# because your resume says .NET.',
+        tip: 'DSA rounds test logic, not language. Use Java because you\'re comfortable. Technical rounds test your stack — answer in C#. These are two separate rounds with zero overlap. Don\'t waste time doing DSA in C# just to "match your stack."',
+        imp: 'hot'
+      },
+      {
+        q: 'Should I learn OOP in Java or C#?',
+        whoAsks: 'Technical rounds will ask OOP — always in the context of YOUR tech stack on resume',
+        doesntMatter: 'DSA rounds never ask OOP. Language-agnostic companies (Flipkart, Swiggy) don\'t care which language you explain OOP in.',
+        answer: 'Learn OOP in C#. OOP is asked in technical rounds, not DSA rounds. Since your resume says .NET, they\'ll ask OOP in C# context — interfaces, abstract classes, virtual/override, SOLID principles. C# and Java OOP are 95% identical anyway — only keywords differ (virtual vs @Override, sealed vs final).',
+        tip: 'If you know OOP in C#, you automatically know it in Java. The concepts (polymorphism, encapsulation, abstraction, inheritance) are language-agnostic. Only syntax differs slightly. Focus on C# because that\'s what your interviewer expects.',
+        imp: 'hot'
+      },
+      {
+        q: 'Should I switch to Java backend (Spring Boot) instead of .NET for more job opportunities?',
+        whoAsks: 'Nobody — this is a self-doubt question that wastes months if you make the wrong decision',
+        doesntMatter: 'Product companies (Flipkart, Razorpay, Atlassian) — they hire based on DSA + system design, not your framework.',
+        answer: 'No. Don\'t switch. You already have real project experience in .NET + Angular with certifications. Switching to Spring Boot resets your progress by 2-3 months for the same concepts in different syntax. .NET has less competition per job than Java. Microsoft + Goldman Sachs + Nagarro + Publicis Sapient actively hire .NET devs.',
+        tip: 'Java has more raw job postings, but also 5x more candidates competing. .NET devs face less competition. Product companies don\'t care about framework — they test DSA. Service companies actively seek .NET devs. Switching frameworks = losing time relearning the same concepts in different syntax. Double down on what you know.',
+        imp: 'hot'
+      },
+      {
+        q: 'Can I bluff about having another offer during salary negotiation?',
+        whoAsks: 'You ask yourself this — but the HR will test it by asking for proof',
+        doesntMatter: 'N/A — bluffing is risky everywhere',
+        answer: 'Don\'t bluff. Many HRs ask "Can you share the offer letter?" or "Which company?" If you can\'t answer, you lose all credibility. Instead, say: "I have a few processes at advanced stages" (true if you\'ve given any interviews) or "I\'m evaluating multiple opportunities" (true if you\'ve applied anywhere).',
+        tip: 'The real solution: get Wave 1 offers first (Nagarro, Epam, GlobalLogic at 6-8 LPA). Use those REAL offer letters to negotiate 10-12 LPA at Wave 2 companies. Each wave\'s offer is your weapon for the next wave. No bluffing needed — just smart sequencing. HR people talk to each other — getting caught lying can blacklist you in recruiter circles.',
+        imp: 'hot'
+      },
+      {
+        q: 'I have LTIMindtree training certification with milestone exams and team project. How do I use this?',
+        whoAsks: 'You bring this up — interviewers won\'t ask about it unless it\'s on your resume',
+        doesntMatter: 'Product companies care more about DSA performance than certifications',
+        answer: 'At LTIMindtree, I went through a structured training program with milestone exams and strict evaluations in .NET and Angular. After clearing all assessments, we built a full-stack project as a team and I defended it in a technical interview. Since then, I\\\'ve been deepening my skills in clean architecture, testing, and system design on my own.',
+        tip: 'This is stronger than "I watched YouTube tutorials." You were tested, evaluated, and certified. Put the certification on LinkedIn and resume. But don\'t rely only on it — training covers breadth, interviews test depth. The roadmap fills the depth gap. Your training + roadmap preparation = interview-ready.',
+        imp: 'hot'
+      },
+      {
+        q: 'Most dream companies (Flipkart, Swiggy, Cred) don\'t use .NET. Should I still apply?',
+        whoAsks: 'Nobody — but you need to know this before applying',
+        doesntMatter: 'These companies literally don\'t care about your framework. They hire based on DSA + system design. You learn their stack after joining.',
+        answer: 'Yes, absolutely apply. Flipkart, Swiggy, Cred, Razorpay use Java/Go/Python — but they don\'t test framework knowledge in interviews. They test DSA (which you do in Java already) and system design (language-agnostic). After joining, learning Java Spring Boot from C# .NET takes 2-4 weeks — the concepts are 90% identical.',
+        tip: 'Your best .NET-native dream targets are Microsoft (22-40 LPA) and Goldman Sachs (18-30 LPA) — they actually use C#/.NET. For other product companies, your DSA in Java is what gets you in, not your tech stack. Apply everywhere — let the interview result decide, not self-filtering.',
+        imp: 'hot'
+      },
+      {
+        q: 'Counter with +15-20% means what exactly? How does it work?',
+        whoAsks: 'This is your strategy — apply it when the HR gives you a number',
+        doesntMatter: 'N/A — works at every company type',
+        answer: 'When a company offers 8 LPA, don\'t say "yes" immediately. Say: "Thank you for the offer. I was expecting something closer to 9.5 LPA based on my skills and other processes I\\\'m evaluating. Is there flexibility?" They\'ll likely come back at 8.5-9 LPA. You just earned 50K-1L more per year by asking one sentence.',
+        tip: 'Companies always keep a buffer — the first offer is never their max. They already decided to hire you, they won\'t cancel over a polite counter. Worst case they say "this is our best." You still take the original. Best case you get 50K-1.5L more annually. ALWAYS take 24 hours to "think about it" — never accept on the spot.',
+        imp: 'hot'
+      }
+    ],
+    companyDirectory: [
+      { name: 'Nagarro', pkg: '6–10 LPA', wave: 1, backend: 'High', frontend: 'Medium', dsa: 'Low–Medium', systemDesign: 'Low', focus: 'Backend heavy — .NET, SQL, EF Core. Practical coding round. Light DSA.', location: 'Gurugram, Jaipur, Pune', mode: 'Hybrid' },
+      { name: 'Epam Systems', pkg: '6–10 LPA', wave: 1, backend: 'High', frontend: 'Medium', dsa: 'Low', systemDesign: 'Low', focus: 'Backend + clean code. They care about design patterns, SOLID. Almost no DSA.', location: 'Hyderabad, Bangalore', mode: 'Hybrid' },
+      { name: 'GlobalLogic', pkg: '5–8 LPA', wave: 1, backend: 'High', frontend: 'Medium', dsa: 'Low', systemDesign: 'Low', focus: 'Straightforward .NET + Angular technical round. Very practical questions.', location: 'Noida, Hyderabad, Nagpur', mode: 'Hybrid' },
+      { name: 'Persistent Systems', pkg: '5–8 LPA', wave: 1, backend: 'Medium', frontend: 'Medium', dsa: 'Low', systemDesign: 'Low', focus: 'General full-stack questions. Good for first interview practice.', location: 'Pune, Nagpur, Goa', mode: 'Hybrid' },
+      { name: 'Mphasis', pkg: '5–7 LPA', wave: 1, backend: 'Medium', frontend: 'Low', dsa: 'Low', systemDesign: 'None', focus: 'Basic .NET, SQL queries, simple coding. Easy warm-up interviews.', location: 'Bangalore, Pune', mode: 'Hybrid' },
+      { name: 'LTIMindtree', pkg: '5–8 LPA', wave: 1, backend: 'Medium', frontend: 'Medium', dsa: 'Low', systemDesign: 'None', focus: 'Standard .NET + Angular questions. SQL is important here. Easy practice.', location: 'Multiple cities', mode: 'Hybrid/WFO' },
+      { name: 'Cyient', pkg: '5–7 LPA', wave: 1, backend: 'Medium', frontend: 'Low', dsa: 'Low', systemDesign: 'None', focus: 'Basic .NET backend, SQL, simple API questions. Good first interview.', location: 'Hyderabad', mode: 'WFO' },
+      { name: 'NeoSOFT', pkg: '4–7 LPA', wave: 1, backend: 'Medium', frontend: 'Medium', dsa: 'None', systemDesign: 'None', focus: 'Practical project-based questions. No DSA at all. Good for confidence building.', location: 'Mumbai, Pune', mode: 'Hybrid' },
+      { name: 'Publicis Sapient', pkg: '10–16 LPA', wave: 2, backend: 'High', frontend: 'High', dsa: 'Medium', systemDesign: 'Medium', focus: 'Strong on clean architecture, SOLID, design patterns. Machine coding round. Moderate DSA.', location: 'Gurugram, Bangalore, Noida', mode: 'Hybrid' },
+      { name: 'Thoughtworks', pkg: '10–16 LPA', wave: 2, backend: 'High', frontend: 'High', dsa: 'Medium', systemDesign: 'High', focus: 'TDD, pair programming, clean code. They test HOW you think, not just answers. System design matters.', location: 'Bangalore, Pune, Chennai', mode: 'Hybrid' },
+      { name: 'Hashedin (Deloitte)', pkg: '8–14 LPA', wave: 2, backend: 'High', frontend: 'Medium', dsa: 'Medium', systemDesign: 'Medium', focus: 'Backend heavy + some DSA. Good balance of practical and theoretical questions.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'Tekion', pkg: '12–20 LPA', wave: 2, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'Medium', focus: 'Strong DSA (2 rounds) + deep backend. They pay well but DSA bar is high.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'Juspay', pkg: '10–16 LPA', wave: 2, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'Medium', focus: 'Heavy DSA focus. Functional programming knowledge is a bonus. Backend depth matters.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'BrowserStack', pkg: '10–18 LPA', wave: 2, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'Medium', focus: 'DSA + system design. They want problem solvers. Clean code in coding rounds matters.', location: 'Mumbai', mode: 'Hybrid' },
+      { name: 'PayU', pkg: '8–14 LPA', wave: 2, backend: 'High', frontend: 'Medium', dsa: 'Medium', systemDesign: 'Medium', focus: 'Backend + payments domain. Good if you add payment gateway to your project. Moderate DSA.', location: 'Gurugram, Bangalore', mode: 'Hybrid' },
+      { name: 'Lenskart', pkg: '8–14 LPA', wave: 2, backend: 'High', frontend: 'Medium', dsa: 'Medium', systemDesign: 'Low', focus: 'Practical backend. Startup energy — they like candidates who can ship fast. Low system design.', location: 'Gurugram, Bangalore', mode: 'Hybrid' },
+      { name: 'Innovaccer', pkg: '10–16 LPA', wave: 2, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'Medium', focus: 'DSA heavy + backend depth. Healthcare tech. Good engineering culture.', location: 'Noida', mode: 'Hybrid' },
+      { name: 'Freshworks', pkg: '12–20 LPA', wave: 3, backend: 'High', frontend: 'High', dsa: 'High', systemDesign: 'High', focus: 'Full package — DSA (2 rounds), system design, backend + frontend depth. Very thorough process.', location: 'Chennai, Bangalore', mode: 'Hybrid' },
+      { name: 'Zoho', pkg: '8–18 LPA', wave: 3, backend: 'High', frontend: 'High', dsa: 'High', systemDesign: 'Medium', focus: 'Unique process — programming round in C (yes, C). Then advanced rounds. No external libraries mindset.', location: 'Chennai', mode: 'WFO' },
+      { name: 'Razorpay', pkg: '16–25 LPA', wave: 3, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'High', focus: 'DSA (2 hard rounds) + system design. Backend heavy. Payments domain knowledge is a bonus.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'Flipkart', pkg: '18–28 LPA', wave: 3, backend: 'High', frontend: 'Low', dsa: 'Very High', systemDesign: 'High', focus: 'DSA is king — 2-3 hard DSA rounds. System design critical. Frontend barely matters. Solve 200+ LeetCode.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'PhonePe', pkg: '16–25 LPA', wave: 3, backend: 'High', frontend: 'Low', dsa: 'Very High', systemDesign: 'High', focus: 'Very similar to Flipkart (same parent). Heavy DSA + system design. Backend focused.', location: 'Bangalore, Pune', mode: 'Hybrid' },
+      { name: 'Atlassian', pkg: '22–35 LPA', wave: 3, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'High', focus: 'Values-based + technical. DSA + system design + behavioral (Atlassian values). Well-rounded process.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'Cred', pkg: '16–25 LPA', wave: 3, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'High', focus: 'DSA + machine coding + system design. They value craft and clean code. Competitive process.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'Swiggy', pkg: '15–24 LPA', wave: 3, backend: 'High', frontend: 'Low', dsa: 'Very High', systemDesign: 'High', focus: 'DSA heavy (2-3 rounds). System design is asked even at SDE-1. Backend dominates.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'Groww', pkg: '14–22 LPA', wave: 3, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'High', focus: 'DSA (2 rounds) + system design + tech deep-dive. Fintech — mention if you built payment features.', location: 'Bangalore', mode: 'Hybrid' },
+      { name: 'Zerodha', pkg: '14–22 LPA', wave: 3, backend: 'High', frontend: 'Low', dsa: 'Medium', systemDesign: 'High', focus: 'Unique — they care more about system design + low-level understanding than DSA. Backend mastery.', location: 'Bangalore', mode: 'Remote-friendly' },
+      { name: 'Microsoft', pkg: '22–40 LPA', wave: 3, backend: 'High', frontend: 'Medium', dsa: 'Very High', systemDesign: 'High', focus: 'DSA (3 rounds, medium-hard). System design. Behavioral (growth mindset). Don\'t need current CTC.', location: 'Hyderabad, Bangalore, Noida', mode: 'Hybrid' },
+      { name: 'Goldman Sachs', pkg: '18–30 LPA', wave: 3, backend: 'High', frontend: 'Medium', dsa: 'High', systemDesign: 'High', focus: 'DSA + OOP + system design. HackerRank online test first. Strong Java/.NET knowledge needed.', location: 'Bangalore, Hyderabad', mode: 'Hybrid/WFO' },
+    ],
+    drill: 'Help me create a company application tracker and week-by-week job hunt plan for a .NET Angular developer at 4 LPA targeting 8-12 LPA'
+  },
+  {
+    id: 'p15',
+    label: 'Phase 15 · DSA',
+    color: '#993C1D',
+    bgColor: '#FAECE7',
+    days: 'Daily parallel',
+    title: 'DSA — daily 45 min (parallel)',
+    subtitle: 'Run alongside all phases — every single day · Code in Java',
+    isDSA: true,
+    topics: [
+      { name: 'Week 1–2: Arrays basics — traversal, reverse, rotate, max subarray (Kadane\'s), merge sorted arrays', imp: 'hot', days: 'Week 1–2' },
+      { name: 'Week 2–3: Two pointers — pair sum, 3Sum, container with most water, remove duplicates sorted array', imp: 'hot', days: 'Week 2–3' },
+      { name: 'Week 3–4: Sliding window — max sum subarray of size K, longest substring without repeating chars, minimum window substring', imp: 'hot', days: 'Week 3–4' },
+      { name: 'Week 4–5: Strings — palindrome check, anagram grouping, longest common prefix, string to integer (atoi)', imp: 'hot', days: 'Week 4–5' },
+      { name: 'Week 5–6: HashMap / Dictionary — two sum, frequency count, group anagrams, subarray sum equals K, first non-repeating char', imp: 'hot', days: 'Week 5–6' },
+      { name: 'Week 6–7: Stack — valid parentheses, next greater element, min stack, evaluate reverse polish notation, daily temperatures', imp: 'hot', days: 'Week 6–7' },
+      { name: 'Week 7–8: Queue & Deque — implement queue using stacks, sliding window maximum, first negative in every window of size K', imp: 'med', days: 'Week 7–8' },
+      { name: 'Week 8–9: Linked List — reverse, detect cycle (Floyd\'s), merge two sorted, remove nth from end, find middle, intersection point', imp: 'hot', days: 'Week 8–9' },
+      { name: 'Week 9–10: Binary search — classic, rotated sorted array, first/last position, search in 2D matrix, peak element, search in answer space', imp: 'hot', days: 'Week 9–10' },
+      { name: 'Week 10–11: Sorting — merge sort, quick sort, counting sort, sort colors (Dutch flag), when to use which sort', imp: 'med', days: 'Week 10–11' },
+      { name: 'Week 11–13: Binary trees — inorder/preorder/postorder, level order (BFS), height, diameter, check balanced, lowest common ancestor', imp: 'hot', days: 'Week 11–13' },
+      { name: 'Week 13–14: BST — search, insert, delete, validate BST, kth smallest, inorder successor, convert sorted array to BST', imp: 'hot', days: 'Week 13–14' },
+      { name: 'Week 14–15: Heaps / Priority Queue — kth largest element, top K frequent elements, merge K sorted lists, median from data stream', imp: 'med', days: 'Week 14–15' },
+      { name: 'Week 15–16: Recursion & Backtracking — subsets, permutations, combination sum, N-Queens, word search, generate parentheses', imp: 'hot', days: 'Week 15–16' },
+      { name: 'Week 16–18: Dynamic programming — fibonacci, climbing stairs, 0/1 knapsack, longest common subsequence, coin change, longest increasing subsequence, house robber', imp: 'hot', days: 'Week 16–18' },
+      { name: 'Week 18–19: Greedy — activity selection, jump game, meeting rooms, minimum platforms, fractional knapsack', imp: 'med', days: 'Week 18–19' },
+      { name: 'Week 19–21: Graphs — BFS, DFS, detect cycle (directed + undirected), topological sort, number of islands, shortest path (Dijkstra basics)', imp: 'hot', days: 'Week 19–21' },
+      { name: 'Week 21–22: Bit manipulation — single number, count set bits, power of two, XOR tricks, subset generation with bits', imp: 'med', days: 'Week 21–22' },
+      { name: 'Weekly revision — every Sunday revise that week\'s problems. Re-solve without looking at solution. Track which ones you struggle with.', imp: 'hot', days: 'Every Sunday' },
+    ],
+    mustSolveProblems: [
+      { category: 'Arrays', problems: ['LC #1 Two Sum', 'LC #121 Best Time to Buy/Sell Stock', 'LC #53 Maximum Subarray (Kadane)', 'LC #238 Product of Array Except Self', 'LC #11 Container With Most Water', 'LC #56 Merge Intervals', 'LC #15 3Sum'], difficulty: 'Easy–Medium', companyAsk: 'Every company' },
+      { category: 'Strings', problems: ['LC #125 Valid Palindrome', 'LC #49 Group Anagrams', 'LC #3 Longest Substring Without Repeating', 'LC #5 Longest Palindromic Substring', 'LC #8 String to Integer (atoi)', 'LC #20 Valid Parentheses'], difficulty: 'Easy–Medium', companyAsk: 'Every company' },
+      { category: 'HashMap', problems: ['LC #1 Two Sum', 'LC #560 Subarray Sum Equals K', 'LC #347 Top K Frequent Elements', 'LC #387 First Unique Character', 'LC #49 Group Anagrams', 'LC #128 Longest Consecutive Sequence'], difficulty: 'Easy–Medium', companyAsk: 'Every company' },
+      { category: 'Stack & Queue', problems: ['LC #20 Valid Parentheses', 'LC #155 Min Stack', 'LC #496 Next Greater Element', 'LC #739 Daily Temperatures', 'LC #150 Evaluate Reverse Polish', 'LC #232 Queue using Stacks'], difficulty: 'Easy–Medium', companyAsk: 'Wave 1–3' },
+      { category: 'Linked List', problems: ['LC #206 Reverse Linked List', 'LC #141 Detect Cycle', 'LC #21 Merge Two Sorted Lists', 'LC #19 Remove Nth From End', 'LC #876 Middle of List', 'LC #160 Intersection of Two Lists'], difficulty: 'Easy–Medium', companyAsk: 'Wave 1–3' },
+      { category: 'Binary Search', problems: ['LC #704 Binary Search', 'LC #33 Search Rotated Array', 'LC #34 First and Last Position', 'LC #74 Search 2D Matrix', 'LC #875 Koko Eating Bananas', 'LC #162 Peak Element'], difficulty: 'Easy–Medium', companyAsk: 'Wave 2–3 (very common)' },
+      { category: 'Trees', problems: ['LC #102 Level Order Traversal', 'LC #104 Maximum Depth', 'LC #226 Invert Binary Tree', 'LC #543 Diameter of Tree', 'LC #236 Lowest Common Ancestor', 'LC #98 Validate BST', 'LC #230 Kth Smallest in BST', 'LC #297 Serialize/Deserialize'], difficulty: 'Easy–Hard', companyAsk: 'Wave 2–3' },
+      { category: 'Recursion/Backtrack', problems: ['LC #78 Subsets', 'LC #46 Permutations', 'LC #39 Combination Sum', 'LC #17 Letter Combinations', 'LC #79 Word Search', 'LC #51 N-Queens', 'LC #22 Generate Parentheses'], difficulty: 'Medium–Hard', companyAsk: 'Wave 2–3' },
+      { category: 'Dynamic Programming', problems: ['LC #70 Climbing Stairs', 'LC #198 House Robber', 'LC #322 Coin Change', 'LC #1143 Longest Common Subsequence', 'LC #300 Longest Increasing Subsequence', 'LC #416 Partition Equal Subset (Knapsack)', 'LC #72 Edit Distance'], difficulty: 'Medium–Hard', companyAsk: 'Wave 3 (Flipkart, Microsoft, Razorpay)' },
+      { category: 'Graphs', problems: ['LC #200 Number of Islands', 'LC #133 Clone Graph', 'LC #207 Course Schedule (Topo Sort)', 'LC #210 Course Schedule II', 'LC #994 Rotting Oranges (BFS)', 'LC #127 Word Ladder'], difficulty: 'Medium–Hard', companyAsk: 'Wave 3 (Flipkart, Swiggy, PhonePe)' },
+    ],
+    companyDSAGuide: [
+      { tier: 'Wave 1 (Nagarro, Epam, GlobalLogic)', level: 'Easy', count: '50 problems enough', focus: 'Arrays, Strings, HashMap, basic Linked List. Just solve top 50 LeetCode easy. That\'s it.', patterns: 'Two pointers, frequency count, basic iteration', leetcodeTarget: '50 easy' },
+      { tier: 'Wave 2 (Publicis, Tekion, Juspay, BrowserStack)', level: 'Easy + Medium', count: '80–100 problems', focus: 'Add Binary Search, Stack, Trees, some DP basics. Medium difficulty is the bar.', patterns: 'Sliding window, binary search on answer, BFS/DFS on trees, monotonic stack', leetcodeTarget: '60 easy + 30 medium' },
+      { tier: 'Wave 3 (Flipkart, Microsoft, Razorpay, Swiggy)', level: 'Medium + Hard', count: '150–200 problems', focus: 'DP, Graphs, advanced Trees, Backtracking. Expect 2–3 medium-hard problems in 45 min.', patterns: 'DP patterns (knapsack, LCS, LIS), graph traversals, topological sort, segment trees (rare)', leetcodeTarget: '60 easy + 80 medium + 20 hard' },
+    ],
+    weeklyTargets: [
+      { week: 'Week 1–4', target: '20 problems', breakdown: '15 easy + 5 medium', milestone: 'Comfortable with arrays, strings, two pointers' },
+      { week: 'Week 5–8', target: '25 problems', breakdown: '15 easy + 10 medium', milestone: 'HashMap + Stack + Linked List solid' },
+      { week: 'Week 9–12', target: '25 problems', breakdown: '10 easy + 15 medium', milestone: 'Binary search + Trees confident' },
+      { week: 'Week 13–16', target: '25 problems', breakdown: '5 easy + 15 medium + 5 hard', milestone: 'Recursion + DP basics done' },
+      { week: 'Week 17–21', target: '30 problems', breakdown: '20 medium + 10 hard', milestone: 'Graphs + advanced DP. Interview ready.' },
+    ],
+    iqs: [
+      { q: 'Two Sum — solve in O(n) using HashMap', fire: true },
+      { q: 'Find the longest substring without repeating characters', fire: true },
+      { q: 'Reverse a linked list — iterative and recursive', fire: true },
+      { q: 'Binary search on a rotated sorted array', fire: true },
+      { q: 'Maximum subarray sum (Kadane\'s algorithm)', fire: true },
+      { q: 'Detect cycle in a linked list — explain Floyd\'s algorithm', fire: true },
+      { q: 'Level order traversal of a binary tree', fire: true },
+      { q: 'Validate if a tree is a BST', fire: true },
+      { q: 'Merge two sorted linked lists', fire: true },
+      { q: 'Coin change problem — DP approach', fire: false },
+      { q: 'Number of islands — BFS/DFS', fire: false },
+      { q: 'Longest common subsequence', fire: false },
+      { q: 'Explain time complexity of your solution — always', fire: true },
+      { q: 'What is the difference between BFS and DFS? When to use each?', fire: true },
+    ],
+    drill: 'Give me the 50 most important LeetCode problems for a 1 year experience developer with solutions in Java'
+  }
+];
+
+const overviewPhases = phases.filter(p => !p.isOverview && !p.isDaily);
+
+function renderOverview() {
+  return `
+    <div class="overview-grid">
+      ${overviewPhases.map((p, i) => `
+        <div class="ov-card" onclick="selectPhase('${p.id}')">
+          <div class="ov-num" style="background:${p.bgColor};color:${p.color};">${i+1}</div>
+          <div class="ov-title">${p.title}</div>
+          <div class="ov-days">${p.days}</div>
+          <div class="ov-imp" style="color:${p.color};">${p.topics ? p.topics.filter(t=>t.imp==='hot').length + ' must-know topics' : 'Daily parallel'}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="info-box">
+      <div class="info-box-title">📋 How to use this roadmap</div>
+      <div class="info-box-content">
+        Follow phases 1–13 in sequence. Run Phase 15 (DSA) every single day in parallel.<br>
+        Phase 14 (Job Hunt) starts at Day 90 — apply while still studying.<br>
+        Each topic has a day tag — stick to the sequence but don't skip ahead.<br>
+        Focus most time on <span class="tag tag-hot" style="font-size:10px;">must know</span> tags — asked in almost every interview.<br>
+        Build one real project throughout (phases 2–10) — it is your interview anchor.<br>
+        Each phase has a revision/catch-up buffer — use it, don't skip ahead.
+      </div>
+    </div>
+    <button class="action-btn" onclick="sendPrompt('Give me a week-by-week study plan for the .NET Angular roadmap for 5 months')">Get week-by-week plan ↗</button>
+  `;
+}
+
+function renderDaily() {
+  const slots = [
+    { time: '6:00–7:30 AM', activity: '🧠 DSA', sub: '45 min LeetCode + 45 min review', color: '#EF4444' },
+    { time: '8:00–9:30 PM', activity: '📚 Main phase topic', sub: 'Study + write code', color: '#6366F1' },
+    { time: '9:30–10:15 PM', activity: '🔨 Build project', sub: 'Apply today\'s concept', color: '#10B981' },
+    { time: '10:15–10:30 PM', activity: '💬 Interview Qs', sub: 'Revise 3–4 questions', color: '#F59E0B' },
+  ];
+  return `
+    <div class="daily-strip">
+      ${slots.map(s => `
+        <div class="daily-card" style="border-left: 3px solid ${s.color};">
+          <div class="time">${s.time}</div>
+          <div class="activity">${s.activity}</div>
+          <div class="sub">${s.sub}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="info-box">
+      <div class="info-box-title">⚡ Rules for every day</div>
+      <div class="info-box-content">
+        Never skip DSA — even 30 min on busy days.<br>
+        Code every concept you study — reading alone does not work.<br>
+        One LeetCode easy + push to complete a medium per week.<br>
+        Revise interview questions from the current phase daily.<br>
+        Sunday: revise the full week — no new topics.<br>
+        After phase 6 — start explaining topics aloud (mock interview yourself).<br>
+        Use catch-up days to fill gaps — never skip ahead with shaky fundamentals.
+      </div>
+    </div>
+    <button class="action-btn" onclick="sendPrompt('Give me a 5-month calendar with specific topics for each week of the .NET Angular roadmap')">Get 5-month calendar ↗</button>
+  `;
+}
+
+function renderJobHunt(p) {
+  const dotColor = p.color;
+  const impColors = { hot: 'tag-hot', med: 'tag-med', new: 'tag-new' };
+  const impLabels = { hot: 'must know', med: 'important', new: 'good to know' };
+
+  let html = '';
+
+  // Package guide from 4 LPA
+  html += `
+    <div style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-radius:14px;padding:18px 20px;margin-bottom:1.25rem;border:1px solid #FDE68A;box-shadow:0 4px 12px rgba(245,158,11,0.1);">
+      <div style="font-size:15px;font-weight:700;color:#92400E;margin-bottom:12px;">💰 Package targets from ${p.packageGuide.currentCTC}</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;">
+        ${p.packageGuide.targets.map(t => `
+          <div style="background:white;border-radius:10px;padding:14px 16px;border:1px solid #FDE68A;transition:transform 0.2s;">
+            <div style="font-size:18px;font-weight:700;color:#B45309;">${t.range}</div>
+            <div style="font-size:11px;color:#92400E;margin:3px 0;font-weight:600;">${t.hike} hike · ${t.difficulty}</div>
+            <div style="font-size:11px;color:#78716C;margin-top:6px;line-height:1.5;">${t.how}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  // Company tiers
+  html += `
+    <div style="margin-bottom:1.25rem;">
+      <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:12px;display:flex;align-items:center;gap:8px;">🎯 Company waves — when to apply where</div>
+      ${p.companyTiers.map(t => `
+        <div style="border:1.5px solid #E2E8F0;border-radius:10px;padding:14px 18px;margin-bottom:10px;background:white;transition:all 0.2s;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+            <div style="font-size:14px;font-weight:700;color:#0F172A;">${t.tier}</div>
+            <span class="tag tag-hot" style="font-size:12px;padding:3px 10px;">${t.target}</span>
+          </div>
+          <div style="font-size:12px;color:#64748B;line-height:1.8;">
+            <div style="margin-bottom:3px;"><strong style="color:#0F172A;">Purpose:</strong> ${t.purpose}</div>
+            <div style="margin-bottom:3px;"><strong style="color:#0F172A;">Companies:</strong> ${t.companies}</div>
+            <div style="margin-bottom:3px;"><strong style="color:#0F172A;">Interview rounds:</strong> ${t.rounds}</div>
+            <div style="margin-bottom:3px;"><strong style="color:#0F172A;">How to approach:</strong> ${t.approach}</div>
+            <div><strong style="color:#0F172A;">Timeline:</strong> ${t.timing}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  // Company Directory
+  if (p.companyDirectory && p.companyDirectory.length > 0) {
+    const levelColors = { 'None': '#D1D5DB', 'Low': '#86EFAC', 'Low–Medium': '#FDE68A', 'Medium': '#FCD34D', 'High': '#FB923C', 'Very High': '#F87171' };
+    const levelTextColors = { 'None': '#6B7280', 'Low': '#166534', 'Low–Medium': '#92400E', 'Medium': '#92400E', 'High': '#9A3412', 'Very High': '#991B1B' };
+    const waveLabels = { 1: 'Wave 1', 2: 'Wave 2', 3: 'Wave 3' };
+    const waveColors = { 1: '#3B82F6', 2: '#F59E0B', 3: '#EF4444' };
+
+    function skillPill(label, level) {
+      return `<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:2px 7px;border-radius:10px;background:${levelColors[level] || '#E5E7EB'};color:${levelTextColors[level] || '#374151'};font-weight:500;">${label}: ${level}</span>`;
+    }
+
+    html += `
+      <div style="margin-bottom:1.25rem;">
+        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px;display:flex;align-items:center;gap:8px;">🏢 Company directory — ${p.companyDirectory.length} companies with interview focus</div>
+        <div style="font-size:12px;color:#64748B;margin-bottom:8px;">What each company cares about most in interviews. Click to expand.</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;font-size:10px;">
+          <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:50%;background:#86EFAC;border:1px solid #4ADE80;"></span> Low / None</span>
+          <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:50%;background:#FCD34D;border:1px solid #FBBF24;"></span> Medium</span>
+          <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:50%;background:#FB923C;border:1px solid #F97316;"></span> High</span>
+          <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:50%;background:#F87171;border:1px solid #EF4444;"></span> Very High</span>
+        </div>
+
+        ${[1,2,3].map(wave => {
+          const waveCompanies = p.companyDirectory.filter(c => c.wave === wave);
+          if (waveCompanies.length === 0) return '';
+          return `
+            <div style="margin-bottom:12px;">
+              <div style="font-size:12px;font-weight:700;color:${waveColors[wave]};margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;padding-left:4px;border-left:3px solid ${waveColors[wave]};">${waveLabels[wave]} companies</div>
+              ${waveCompanies.map(c => `
+                <details style="border:1.5px solid #E2E8F0;border-radius:10px;margin-bottom:6px;background:white;">
+                  <summary style="padding:10px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                      <span style="font-size:14px;font-weight:700;color:#0F172A;">${c.name}</span>
+                      <span style="font-size:12px;font-weight:700;color:#B45309;background:#FEF3C7;padding:2px 8px;border-radius:50px;border:1px solid #FDE68A;">${c.pkg}</span>
+                    </div>
+                    <div style="display:flex;gap:4px;flex-wrap:wrap;">
+                      ${skillPill('Backend', c.backend)}
+                      ${skillPill('Frontend', c.frontend)}
+                      ${skillPill('DSA', c.dsa)}
+                      ${skillPill('Sys Design', c.systemDesign)}
+                    </div>
+                  </summary>
+                  <div style="padding:6px 14px 12px;">
+                    <div style="font-size:12px;color:#0F172A;line-height:1.7;margin-bottom:8px;background:#F8FAFC;padding:8px 12px;border-radius:8px;border-left:3px solid ${waveColors[wave]};">${c.focus}</div>
+                    <div style="font-size:11px;color:#64748B;">📍 ${c.location} · ${c.mode}</div>
+                  </div>
+                </details>
+              `).join('')}
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  }
+
+  // Topics (action items)
+  html += `
+    <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:12px;display:flex;align-items:center;gap:8px;">📝 Step-by-step action plan</div>
+    <div class="topic-row">
+      ${p.topics.map(t => `
+        <div class="topic-item">
+          <div class="topic-dot" style="background:${dotColor};"></div>
+          <div style="flex:1;">
+            <div class="topic-name">${t.name}</div>
+            <div class="topic-tags">
+              <span class="tag ${impColors[t.imp]}">${impLabels[t.imp]}</span>
+              <span class="tag tag-day">${t.days}</span>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  // Negotiation tips
+  html += `
+    <div style="background:linear-gradient(135deg,#F8FAFC,#EEF2FF);border-radius:10px;padding:18px 20px;margin-bottom:1.25rem;border:1px solid #E2E8F0;">
+      <div style="font-size:14px;font-weight:700;color:#0F172A;margin-bottom:10px;display:flex;align-items:center;gap:8px;">💡 Salary negotiation rules</div>
+      <div style="font-size:12px;color:#64748B;line-height:2.1;">
+        Never reveal current CTC first — say "my expected CTC is 10–12 LPA" confidently.<br>
+        Never accept the first offer — always counter with +15–20%.<br>
+        Always say "I have other processes running" — even if early stage.<br>
+        Get 2–3 offers before negotiating — a competing offer is your best weapon.<br>
+        Check Glassdoor/Levels.fyi for salary benchmarks before the HR round.<br>
+        Evaluate total: base pay vs variable, joining bonus, WFH, tech stack, team quality.<br>
+        If notice period is 60–90 days, ask new company for buyout or negotiate with current employer.
+      </div>
+    </div>
+  `;
+
+  // HR & Salary Negotiation Q&A
+  if (p.hrQuestions && p.hrQuestions.length > 0) {
+    const hrImpColors = { hot: 'tag-hot', med: 'tag-med', new: 'tag-new' };
+    const hrImpLabels = { hot: 'must know', med: 'important', new: 'good to know' };
+    html += `
+      <div style="margin-bottom:1.25rem;">
+        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px;display:flex;align-items:center;gap:8px;">🗣 HR & salary negotiation — questions with answers</div>
+        <div style="font-size:12px;color:#64748B;margin-bottom:14px;">Exact answers you can use. Click each to expand. Includes which company types ask these.</div>
+        ${p.hrQuestions.map((hq, idx) => `
+          <details style="border:1.5px solid #E2E8F0;border-radius:10px;margin-bottom:8px;background:white;">
+            <summary style="padding:12px 16px;cursor:pointer;font-size:13px;font-weight:600;color:#0F172A;display:flex;align-items:center;gap:8px;">
+              <span class="tag ${hrImpColors[hq.imp]}">${hrImpLabels[hq.imp]}</span>
+              ${hq.q}
+            </summary>
+            <div style="padding:4px 16px 16px;">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+                <div style="background:#FFFBEB;border-radius:8px;padding:10px 12px;border:1px solid #FDE68A;">
+                  <div style="font-size:10px;font-weight:700;color:#92400E;text-transform:uppercase;margin-bottom:4px;letter-spacing:0.05em;">Who asks this</div>
+                  <div style="font-size:11px;color:#78716C;line-height:1.6;">${hq.whoAsks}</div>
+                </div>
+                <div style="background:#ECFDF5;border-radius:8px;padding:10px 12px;border:1px solid #A7F3D0;">
+                  <div style="font-size:10px;font-weight:700;color:#065F46;text-transform:uppercase;margin-bottom:4px;letter-spacing:0.05em;">Where it doesn't matter</div>
+                  <div style="font-size:11px;color:#78716C;line-height:1.6;">${hq.doesntMatter}</div>
+                </div>
+              </div>
+              <div style="background:#F8FAFC;border-radius:8px;padding:12px 14px;margin-bottom:10px;border:1px solid #E2E8F0;">
+                <div style="font-size:10px;font-weight:700;color:#6366F1;text-transform:uppercase;margin-bottom:5px;letter-spacing:0.05em;">✅ Your answer</div>
+                <div style="font-size:12px;color:#0F172A;line-height:1.8;font-style:italic;">"${hq.answer}"</div>
+              </div>
+              <div style="background:#FFF7ED;border-radius:8px;padding:10px 12px;border:1px solid #FFEDD5;">
+                <div style="font-size:10px;font-weight:700;color:#9A3412;text-transform:uppercase;margin-bottom:4px;letter-spacing:0.05em;">💡 Pro tip</div>
+                <div style="font-size:11px;color:#78716C;line-height:1.7;">${hq.tip}</div>
+              </div>
+            </div>
+          </details>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Interview FAQs
+  html += `
+    <div class="interview-box">
+      <h4>Quick reference</h4>
+      ${p.iqs.map(q => `
+        <div class="iq"><span class="iq-fire">${q.fire ? '★' : '◇'}</span>${q.q}</div>
+      `).join('')}
+      <button class="drill-btn" onclick="sendPrompt('${p.drill.replace(/'/g,"\\'")}')">Get detailed job hunt plan ↗</button>
+    </div>
+  `;
+
+  return html;
+}
+
+function renderPhase(p) {
+  const dotColor = p.color;
+  const impColors = { hot: 'tag-hot', med: 'tag-med', new: 'tag-new' };
+  const impLabels = { hot: 'must know', med: 'important', new: 'good to know' };
+
+  let html = `
+    <div class="topic-row">
+      ${p.topics.map(t => `
+        <div class="topic-item">
+          <div class="topic-dot" style="background:${dotColor};"></div>
+          <div style="flex:1;">
+            <div class="topic-name">${t.name}</div>
+            <div class="topic-tags">
+              <span class="tag ${impColors[t.imp]}">${impLabels[t.imp]}</span>
+              <span class="tag tag-day">${t.days}</span>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  /* ── DSA-specific: Weekly Targets ── */
+  if (p.weeklyTargets) {
+    html += `
+      <div class="interview-box" style="margin-top:24px;">
+        <h4>📊 Weekly Problem Targets</h4>
+        <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;">
+          <thead>
+            <tr style="background:#f1f5f9;text-align:left;">
+              <th style="padding:10px 12px;border-bottom:2px solid #e2e8f0;">Weeks</th>
+              <th style="padding:10px 12px;border-bottom:2px solid #e2e8f0;">Target</th>
+              <th style="padding:10px 12px;border-bottom:2px solid #e2e8f0;">Breakdown</th>
+              <th style="padding:10px 12px;border-bottom:2px solid #e2e8f0;">Milestone</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${p.weeklyTargets.map((w, i) => `
+              <tr style="background:${i % 2 === 0 ? '#fff' : '#f8fafc'};">
+                <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#993C1D;">${w.week}</td>
+                <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">${w.target}</td>
+                <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;">${w.breakdown}</td>
+                <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;color:#475569;">${w.milestone}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        <div style="margin-top:12px;padding:12px;background:#fef3c7;border-radius:8px;font-size:13px;color:#92400e;">
+          <strong>Total target:</strong> ~125 problems in 21 weeks (6 per week average). That's 1 problem per day — very doable in 45 min.
+        </div>
+      </div>
+    `;
+  }
+
+  /* ── Portfolio Projects ── */
+  if (p.portfolioProjects) {
+    html += `
+      <div class="interview-box" style="margin-top:24px;">
+        <h4>🚀 Portfolio Projects — Build These to Get Hired</h4>
+        ${p.projectStrategy ? `
+          <div style="margin-bottom:20px;padding:14px;background:#ecfdf5;border-radius:8px;font-size:13px;color:#065f46;border:1px solid #a7f3d0;">
+            <strong>Strategy:</strong> ${p.projectStrategy.recommendation}<br>
+            <strong>Build order:</strong> ${p.projectStrategy.buildOrder}<br>
+            <strong>GitHub:</strong> ${p.projectStrategy.github}<br>
+            <strong>Deploy:</strong> ${p.projectStrategy.deployment}<br>
+            <strong>Resume tip:</strong> ${p.projectStrategy.resumeTip}
+          </div>
+        ` : ''}
+        ${p.portfolioProjects.map(proj => `
+          <details style="margin-top:16px;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;">
+            <summary style="padding:16px;background:linear-gradient(135deg,#f8fafc,#eef2ff);cursor:pointer;font-weight:700;font-size:15px;color:#1e293b;display:flex;align-items:center;gap:8px;">
+              ${proj.name}
+              <span style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+                <span class="tag tag-hot">${proj.difficulty}</span>
+                <span class="tag tag-day">${proj.timeToBuild}</span>
+              </span>
+            </summary>
+            <div style="padding:16px;">
+              <div style="margin-bottom:12px;padding:10px 14px;background:#fef3c7;border-radius:8px;font-size:13px;color:#92400e;">
+                <strong>Why this project?</strong> ${proj.why}
+              </div>
+              <div style="margin-bottom:12px;font-size:13px;color:#475569;">
+                <strong>Tech stack:</strong> <span style="color:#6366f1;font-weight:600;">${proj.tech}</span>
+              </div>
+              <div style="margin-bottom:14px;">
+                <div style="font-weight:600;font-size:13px;color:#1e293b;margin-bottom:8px;">Features to build:</div>
+                ${proj.features.map((f, i) => `
+                  <div style="display:flex;gap:8px;padding:5px 0;font-size:13px;color:#334155;border-bottom:1px solid #f1f5f9;">
+                    <span style="color:#6366f1;font-weight:600;min-width:20px;">${i+1}.</span>
+                    <span>${f}</span>
+                  </div>
+                `).join('')}
+              </div>
+              <div style="margin-bottom:10px;padding:12px;background:#eef2ff;border-radius:8px;font-size:12px;color:#3730a3;">
+                <strong>📝 Resume bullet point:</strong> ${proj.resume}
+              </div>
+              <div style="padding:12px;background:#f0fdf4;border-radius:8px;font-size:12px;color:#166534;">
+                <strong>🎤 Interview talking points:</strong> ${proj.interviewTalk}
+              </div>
+            </div>
+          </details>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  /* ── What Actually Matters (Project Reality) ── */
+  if (p.whatActuallyMatters) {
+    const impColors = { hot: '#dc2626', med: '#d97706', new: '#059669' };
+    const impBg = { hot: '#fee2e2', med: '#fef3c7', new: '#d1fae5' };
+    const impLabel = { hot: 'CRITICAL', med: 'IMPORTANT', new: 'NICE TO HAVE' };
+    html += `
+      <div class="interview-box" style="margin-top:24px;">
+        <h4>🎯 What Interviewers Actually Do With Your Project</h4>
+        <div style="margin-bottom:12px;padding:12px;background:#fef2f2;border-radius:8px;font-size:13px;color:#991b1b;border:1px solid #fecaca;">
+          <strong>Reality check:</strong> Interviewers almost NEVER visit your deployed app. They judge your project by how you TALK about it. The project exists so YOU can answer questions confidently.
+        </div>
+        ${p.whatActuallyMatters.map(item => `
+          <div style="margin-top:10px;padding:14px;background:#f8fafc;border-radius:10px;border-left:4px solid ${impColors[item.impact]};display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+              <span style="font-weight:700;font-size:14px;color:#1e293b;">${item.action}</span>
+              <div style="display:flex;gap:6px;">
+                <span style="font-size:10px;padding:2px 8px;border-radius:50px;font-weight:600;background:${impBg[item.impact]};color:${impColors[item.impact]};">${impLabel[item.impact]}</span>
+                <span class="tag tag-day">${item.frequency}</span>
+              </div>
+            </div>
+            <div style="font-size:13px;color:#475569;line-height:1.6;">${item.detail}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  /* ── After Building Checklist ── */
+  if (p.afterBuildingChecklist) {
+    html += `
+      <div class="interview-box" style="margin-top:24px;">
+        <h4>✅ After Building — Interview Prep Checklist</h4>
+        <div style="margin-bottom:12px;padding:12px;background:#eef2ff;border-radius:8px;font-size:13px;color:#3730a3;border:1px solid #c7d2fe;">
+          <strong>Building the project is only 50% of the work.</strong> The other 50% is preparing to TALK about it. Complete this checklist before your first interview.
+        </div>
+        ${p.afterBuildingChecklist.map((c, i) => `
+          <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f1f5f9;">
+            <span style="width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;background:${c.priority === 'hot' ? '#fee2e2;color:#dc2626' : '#fef3c7;color:#d97706'};">${i+1}</span>
+            <span style="font-size:13px;color:#334155;line-height:1.6;">${c.item}</span>
+            <span style="margin-left:auto;font-size:10px;padding:2px 8px;border-radius:50px;font-weight:600;flex-shrink:0;background:${c.priority === 'hot' ? '#fee2e2;color:#dc2626' : '#fef3c7;color:#d97706'};">${c.priority === 'hot' ? 'must do' : 'recommended'}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  /* ── README Template ── */
+  if (p.readmeTemplate) {
+    html += `
+      <div class="interview-box" style="margin-top:24px;">
+        <h4>📄 Perfect README Template — Copy This Structure</h4>
+        <div style="margin-bottom:12px;padding:12px;background:#fef3c7;border-radius:8px;font-size:13px;color:#92400e;border:1px solid #fde68a;">
+          <strong>Pro tip:</strong> ${p.readmeTemplate.tip}
+        </div>
+        <div style="background:#1e293b;border-radius:10px;padding:16px;font-family:monospace;font-size:13px;color:#e2e8f0;line-height:1.8;">
+          ${p.readmeTemplate.sections.map((s, i) => `
+            <div><span style="color:#6366f1;font-weight:700;">${i+1}.</span> <span style="color:#86efac;">${s}</span></div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  /* ── Must-Solve Problems ── */
+  if (p.mustSolveProblems) {
+    html += `
+      <div class="interview-box" style="margin-top:24px;">
+        <h4>🎯 Must-Solve Problems by Category</h4>
+        ${p.mustSolveProblems.map(cat => `
+          <div style="margin-top:16px;padding:16px;background:#f8fafc;border-radius:10px;border-left:4px solid ${dotColor};">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+              <span style="font-weight:700;font-size:15px;color:#1e293b;">${cat.category}</span>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                <span class="tag tag-day">${cat.difficulty}</span>
+                <span class="tag tag-med">${cat.companyAsk}</span>
+              </div>
+            </div>
+            <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;">
+              ${cat.problems.map(prob => `
+                <span style="display:inline-block;padding:4px 10px;background:#fff;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;color:#334155;">${prob}</span>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  /* ── DSA-specific: Company DSA Guide ── */
+  if (p.companyDSAGuide) {
+    html += `
+      <div class="interview-box" style="margin-top:24px;">
+        <h4>🏢 Company-Wise DSA Requirements</h4>
+        ${p.companyDSAGuide.map(tier => `
+          <div style="margin-top:16px;padding:16px;background:#f8fafc;border-radius:10px;border-left:4px solid ${tier.level === 'Easy' ? '#16a34a' : tier.level === 'Easy + Medium' ? '#f59e0b' : '#dc2626'};">
+            <div style="font-weight:700;font-size:15px;color:#1e293b;">${tier.tier}</div>
+            <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="tag" style="background:${tier.level === 'Easy' ? '#dcfce7;color:#166534' : tier.level === 'Easy + Medium' ? '#fef3c7;color:#92400e' : '#fee2e2;color:#991b1b'};">${tier.level} level</span>
+              <span class="tag tag-day">${tier.count}</span>
+              <span class="tag" style="background:#e0e7ff;color:#3730a3;">Target: ${tier.leetcodeTarget}</span>
+            </div>
+            <div style="margin-top:8px;font-size:14px;color:#475569;"><strong>Focus:</strong> ${tier.focus}</div>
+            <div style="margin-top:4px;font-size:13px;color:#64748b;"><strong>Key patterns:</strong> ${tier.patterns}</div>
+          </div>
+        `).join('')}
+        <div style="margin-top:16px;padding:14px;background:#ecfdf5;border-radius:8px;font-size:13px;color:#065f46;">
+          <strong>Strategy:</strong> Start applying Wave 1 companies after ~50 problems (Week 8). Wave 2 after ~90 problems (Week 13). Wave 3 after ~130+ problems (Week 18+). Don't wait till you finish all — apply in waves!
+        </div>
+      </div>
+    `;
+  }
+
+  /* ── Interview Questions ── */
+  html += `
+    <div class="interview-box" style="margin-top:24px;">
+      <h4>Interview questions for this phase</h4>
+      ${p.iqs.map(q => `
+        <div class="iq"><span class="iq-fire">${q.fire ? '★' : '◇'}</span>${q.q}</div>
+      `).join('')}
+      <button class="drill-btn" onclick="sendPrompt('${p.drill.replace(/'/g,"\\'")}')">Deep dive into this phase ↗</button>
+    </div>
+  `;
+
+  return html;
+}
+
+function selectPhase(id) {
+  const phase = phases.find(p => p.id === id);
+  if (!phase) return;
+
+  document.querySelectorAll('.phase-nav button').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`.phase-nav button[data-id="${id}"]`);
+  if (btn) btn.classList.add('active');
+
+  const content = document.getElementById('phaseContent');
+  let html = `
+    <div class="phase-block">
+      <div class="phase-header">
+        <div class="phase-num" style="background:${phase.bgColor};color:${phase.color};">${phases.findIndex(p=>p.id===id)}</div>
+        <div>
+          <div class="phase-title">${phase.title}</div>
+          <div class="phase-meta">${phase.subtitle}</div>
+        </div>
+      </div>
+  `;
+
+  if (phase.isOverview) html += renderOverview();
+  else if (phase.isDaily) html += renderDaily();
+  else if (phase.isJobHunt) html += renderJobHunt(phase);
+  else html += renderPhase(phase);
+
+  html += '</div>';
+  content.innerHTML = html;
+}
+
+function init() {
+  const nav = document.getElementById('phaseNav');
+  phases.forEach(p => {
+    const btn = document.createElement('button');
+    btn.textContent = p.label;
+    btn.setAttribute('data-id', p.id);
+    btn.onclick = () => selectPhase(p.id);
+    nav.appendChild(btn);
+  });
+  selectPhase('overview');
+}
+
+init();
+</script>
+</body>
+</html>
